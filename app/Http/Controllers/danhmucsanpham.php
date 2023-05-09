@@ -13,8 +13,8 @@ class danhmucsanpham extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk= session::get('Ma_tk');
-        if($ma_tk){
+        $id= session::get('id');
+        if($id){
             return Redirect::to('/dashboard');
         }else{
             Session::put('message','s xac!');
@@ -29,7 +29,6 @@ class danhmucsanpham extends Controller
         $this->Authlogin();
        
        $data=array();
-       $data['Ma_loai_sp']=$request->madanhmuc;
        $data['Ten_loai_sp']=$request->tendanhmuc;
        $data['Mo_ta']=$request->mota;
         DB::table('loaisp')->insert($data);
@@ -45,7 +44,7 @@ class danhmucsanpham extends Controller
     }
     public function suadanhmuc($id_ma_loai_sp){
         $this->Authlogin();
-        $sua=DB::table('loaisp')->where('Ma_loai_sp',$id_ma_loai_sp)->get();
+        $sua=DB::table('loaisp')->where('id',$id_ma_loai_sp)->get();
         $manager=view('admin.suadanhmuc')->with ('suadanhmuc',$sua);
         return view('admin_layout')->with('admin.suadanhmuc',$manager);
     }
@@ -53,15 +52,14 @@ class danhmucsanpham extends Controller
         $this->Authlogin();
        
         $data=array();
-        $data['Ma_loai_sp']=$request->madanhmuc;
         $data['Ten_loai_sp']=$request->tendanhmuc;
         $data['Mo_ta']=$request->mota;
-         DB::table('loaisp')->where('Ma_loai_sp',$id_ma_loai_sp)->update($data);
+         DB::table('loaisp')->where('id',$id_ma_loai_sp)->update($data);
          Session::put('message','cap nhat thanh cong!');
          return Redirect::to('/lietkedanhmuc');
      }  
      public function xoadanhmuc($id_ma_loai_sp){
-        DB::table('loaisp')->where('Ma_loai_sp',$id_ma_loai_sp)->delete();
+        DB::table('loaisp')->where('id',$id_ma_loai_sp)->delete();
         Session::put('message','Xoa thanh cong!');
         return Redirect::to('/lietkedanhmuc'); 
      }
@@ -72,7 +70,7 @@ class danhmucsanpham extends Controller
             ->get();
         $ncc = DB::table('nhacungcap')
             ->get();
-        $sp_loai = DB::table('sanpham')->join('loaisp',"sanpham.Ma_loai_sp",'=','loaisp.Ma_loai_sp')->where("sanpham.Ma_loai_sp",$id_ma_loai_sp)->get();
+        $sp_loai = DB::table('sanpham')->join('loaisp',"sanpham.loaisp_id",'=','loaisp.id')->where("sanpham.loaisp_id",$id_ma_loai_sp)->get();
         return view('pages.hienthidanhmuc.hienthi')->with('sp_loai',$sp_loai)->with('loaisp',$loai);
         
      }

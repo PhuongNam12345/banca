@@ -2,7 +2,7 @@
 @section('admin_content')
 <section class="panel">
     <header class="panel-heading">
-        Cap nhat tai khoan
+        Cập nhật tài khoản
     </header>
   
     <div class="panel-body">
@@ -12,15 +12,15 @@
                 @csrf
                 
             <div class="form-group">
-                <label for="exampleInputEmail1">Ten tai khoan</label>
+                <label for="exampleInputEmail1">Tên tài khoản</label>
                 <input name="tentk" class="form-control" id="exampleInputEmail1" value="{{ $edit->Tentaikhoan}}">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Mat khau</label>
+                <label for="exampleInputEmail1">Mật khẩu</label>
                 <input name="matkhau" class="form-control" id="exampleInputEmail1"value="{{ $edit->Matkhau}}">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Quyen</label>
+                <label for="exampleInputEmail1">Quyền</label>
                 <input name="quyen"  class="form-control" id="exampleInputEmail1" value="{{ $edit->Quyen}}">
             </div>
         

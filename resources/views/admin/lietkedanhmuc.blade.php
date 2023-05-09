@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Them san pham
+            Loại sản phẩm
         </div>
         <?php
         $message = Session::get('message');
@@ -38,9 +38,9 @@
                                 <input type="checkbox"><i></i>
                             </label>
                         </th>
-                        <th>Ten danh muc</th>
-                        <th>Mo ta</th>
-                        <th>Date</th>
+                        <th>Tên loại sản phẩm</th>
+                        <th>Mô tả</th>
+                       
                         <th style="width:30px;"></th>
                     </tr>
                 </thead>
@@ -51,10 +51,10 @@
                             <td>{{ $item->Ten_loai_sp }}</td>
                             <td><span class="text-ellipsis">{{ $item->Mo_ta }}</span></td>
                             <td>
-                                <a href="{{ URL::to('/suadanhmuc/'.$item->Ma_loai_sp) }}" class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/suadanhmuc/'.$item->id) }}" class="active" ui-toggle-class=""><i
                                         class="fa fa-pencil-square-o text-success text-active"></i>
                                 </a>      
-                                <a href="{{ URL::to('/xoadanhmuc/'.$item->Ma_loai_sp) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/xoadanhmuc/'.$item->id) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
                         </tr>

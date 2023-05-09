@@ -12,7 +12,7 @@ class taikhoan extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk = session::get('Ma_tk');
+        $ma_tk = session::get('id');
         if ($ma_tk) {
             return Redirect::to('/dashboard');
         } else {
@@ -36,7 +36,6 @@ class taikhoan extends Controller
     {
         $this->Authlogin();
         $data = [];
-        $data['Ma_tk'] = $request->matk;
         $data['Tentaikhoan'] = $request->tentk;
         $data['Matkhau'] = md5($request->matkhau);
         $data['Quyen'] = $request->quyen;
@@ -49,7 +48,7 @@ class taikhoan extends Controller
     {
         $this->Authlogin();
         $sua = DB::table('taikhoan')
-            ->where('Ma_tk', $id_ma_tk)
+            ->where('id', $id_ma_tk)
             ->get();
         $manager = view('admin.suataikhoan')->with('suataikhoan', $sua);
         return view('admin_layout')->with('admin.suataikhoan', $manager);
@@ -58,12 +57,11 @@ class taikhoan extends Controller
     {
         $this->Authlogin();
         $data = [];
-        $data['Ma_tk'] = $request->id_ma_tk;
         $data['Tentaikhoan'] = $request->tentk;
         $data['Matkhau'] = md5($request->matkhau);
         $data['Quyen'] = $request->quyen;
         DB::table('taikhoan')
-            ->where('Ma_tk', $id_ma_tk)
+            ->where('id', $id_ma_tk)
             ->update($data);
         Session::put('message', 'cap nhat thanh cong!');
         return Redirect::to('/lietketaikhoan');
@@ -72,7 +70,7 @@ class taikhoan extends Controller
     {
         $this->Authlogin();
         DB::table('taikhoan')
-            ->where('Ma_tk', $id_ma_tk)
+            ->where('id', $id_ma_tk)
             ->delete();
         Session::put('message', 'Xoa thanh cong!');
         return Redirect::to('/lietketaikhoan');

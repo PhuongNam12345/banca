@@ -17,7 +17,7 @@ use App\Http\Controllers\nhacungcap;
 |
 */
 Route::get('/', [Controllername::class, 'index']);
-
+Route::get('/dangki', [AdminController::class, 'dangki']);
 Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::get('/logout', [AdminController::class, 'logout']);
@@ -43,8 +43,14 @@ Route::post('/them-sanpham', [sanpham::class, 'themsanpham']);
 Route::get('/suasanpham/{id_ma_sp}', [sanpham::class, 'suasanpham']);
 Route::post('/sua-sanpham/{id_ma_sp}', [sanpham::class, 'sua_sanpham']);
 Route::get('/xoasanpham/{id_ma_sp}', [sanpham::class, 'xoasanpham']);
+Route::get('/chitiet/{id_ma_sp}', [sanpham::class, 'chitietsanpham']);
+
 //danh muc home
 Route::get('/danhmuc', [Controllername::class, 'danhmuc']);
+// Route::get('/chitiet', [Controllername::class, 'chitiet']);
 Route::get('/', [Controllername::class, 'index']);
 Route::get('/danh-muc/{id_ma_loai_sp}', [danhmucsanpham::class, 'hienthi']);
 Route::get('/giohang', [sanpham::class, 'giohang']);
+Route::get('/blog', [Controllername::class, 'blog']);
+Route::get('/blog1', [Controllername::class, 'blog1']);
+Route::get('/blog2', [Controllername::class, 'blog2']);

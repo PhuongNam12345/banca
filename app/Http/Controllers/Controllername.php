@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class Controllername extends Controller
 {
     public function index(){
-        $sanphamca= DB::table('sanpham')->where('Ma_loai_sp','=','1')-> limit(4)->get();
-        $sanphamthucan= DB::table('sanpham')->where('Ma_loai_sp','=','12')-> limit(4)->get();
-        $sanphamdungcu= DB::table('sanpham')->where('Ma_loai_sp','=','1')-> limit(4)->get();
+        $sanphamca= DB::table('sanpham')->where('loaisp_id','=','2')-> orderByDesc('id_sp')->limit(4)->get();
+        $sanphamthucan= DB::table('sanpham')->where('loaisp_id','=','1')->orderByDesc('id_sp')-> limit(4)->get();
+        $sanphamdungcu= DB::table('sanpham')->where('loaisp_id','=','3')-> orderByDesc('id_sp')->limit(4)->get();
         return view('pages.home')   
             ->with('sanphamca', $sanphamca) ->with('sanphamthucan', $sanphamthucan)->with('sanphamdungcu', $sanphamdungcu);
     }
@@ -18,6 +18,18 @@ class Controllername extends Controller
         $loaisp = DB::table('loaisp')->get();
         return view('pages.danhmuc')->with('loaisp', $loaisp)->with('sp_loai',$sanpham);
         
+    }
+    public function chitiet(){        
+        return view('pages.hienthidanhmuc.chitietsanpham');
+    }
+    public function blog(){        
+        return view('pages.blog.blog');
+    }
+    public function blog1(){        
+        return view('pages.blog.blog1');
+    }
+    public function blog2(){        
+        return view('pages.blog.blog2');
     }
 
 }

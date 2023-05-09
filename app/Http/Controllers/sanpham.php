@@ -11,8 +11,8 @@ class sanpham extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk = session::get('Ma_tk');
-        if ($ma_tk) {
+        $id_sp = session::get('id_sp');
+        if ($id_sp) {
             return Redirect::to('/dashboard');
         } else {
             Session::put('message', 's xac!');
@@ -22,8 +22,8 @@ class sanpham extends Controller
     public function lietkesanpham()
     {
         $lietke = DB::table('sanpham')
-            ->join('loaisp', 'sanpham.Ma_loai_sp', '=', 'loaisp.Ma_loai_sp')
-            ->join('nhacungcap', 'sanpham.Ma_ncc', '=', 'nhacungcap.Ma_ncc')
+            ->join('loaisp', 'sanpham.loaisp_id', '=', 'loaisp.id')
+            ->join('nhacungcap', 'sanpham.nhacungcap_id', '=', 'nhacungcap.id')
             ->get();
 
         $manager = view('admin.lietkesanpham')->with('lietkesanpham', $lietke);
@@ -41,13 +41,12 @@ class sanpham extends Controller
     public function themsanpham(Request $request)
     {
         $data = [];
-        $data['Ma_sp'] = $request->masanpham;
         $data['Ten_sp'] = $request->tensanpham;
-        $data['Ma_loai_sp'] = $request->loaisp;
+        $data['loaisp_id'] = $request->loaisp;
         $data['Mota'] = $request->mota;
         $data['Mau_sac'] = $request->mausac;
         $data['Don_gia'] = $request->dongia;
-        $data['Ma_ncc'] = $request->ncc;
+        $data['nhacungcap_id'] = $request->ncc;
         $data['Hinh'] = $request->hinhanh;
         $get_hinh = $request->file('hinhanh');
         if ($get_hinh) {
@@ -67,8 +66,9 @@ class sanpham extends Controller
     }
     public function suasanpham($id_ma_sp)
     {
+        
         $sua = DB::table('sanpham')
-            ->where('Ma_sp', $id_ma_sp)
+            ->where('id_sp', $id_ma_sp)
             ->get();
         $loai = DB::table('loaisp')
             ->get();
@@ -82,24 +82,37 @@ class sanpham extends Controller
     public function sua_danhmuc(Request $request, $id_ma_sp)
     {
         $data = [];
-        $data['Ma_sp'] = $request->madanhmuc;
+        $data['id_sp'] = $request->madanhmuc;
         $data['Ten_loai_sp'] = $request->tendanhmuc;
         $data['Mo_ta'] = $request->mota;
         DB::table('loaisp')
-            ->where('Ma_sp', $id_ma_sp)
+            ->where('id_sp', $id_ma_sp)
             ->update($data);
         Session::put('message', 'cap nhat thanh cong!');
         return Redirect::to('/lietkedanhmuc');
     }
-    public function xoasanpham($id_ma_sp)
+    public function xoasanpham($id_ma_sp)   
     {
         DB::table('sanpham')
-            ->where('Ma_sp', $id_ma_sp)
+            ->where('id_sp', $id_ma_sp)
             ->delete();
-        Session::put('message', 'Xoa thanh cong!');
+        Session::put('message', 'Xóa thành công!');
         return Redirect::to('/lietkesanpham');
     }
     public function giohang(){
         return view('pages.giohang');
     }
+    public function chitietsanpham($id_ma_sp){
+      
+        $loai = DB::table('loaisp')
+            ->get();
+        $ncc = DB::table('nhacungcap')
+            ->get();
+        $chitiet = DB::table('sanpham') ->join('loaisp',"sanpham.loaisp_id",'=','loaisp.id')->where('id_sp', $id_ma_sp)->get();
+        return view('pages.hienthidanhmuc.chitietsanpham')
+        ->with('loai', $loai)
+        ->with('chitiet', $chitiet)
+        ->with('ncc', $ncc);
+        
+     }
 }

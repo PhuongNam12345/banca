@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Them san pham
+            Danh sách sản phẩm
         </div>
         <?php
         $message = Session::get('message');
@@ -60,10 +60,10 @@
                             <td><img src="public/uploads/sanpham/{{ $item->Hinh }}" height="100" width="100"></td>
                             <td>{{ $item->Ten_ncc }}</td>
                             <td>
-                                <a href="{{ URL::to('/suasanpham/'.$item->Ma_sp) }}" class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/suasanpham/'.$item->id_sp) }}" class="active" ui-toggle-class=""><i
                                         class="fa fa-pencil-square-o text-success text-active"></i>
                                 </a>      
-                                <a href="{{ URL::to('/xoasanpham/'.$item->Ma_sp) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/xoasanpham/'.$item->id_sp) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
                         </tr>

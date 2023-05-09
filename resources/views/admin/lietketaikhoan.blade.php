@@ -38,9 +38,9 @@
                                 <input type="checkbox"><i></i>
                             </label>
                         </th>
-                        <th>Tentai khoan</th>
-                        <th>Mat khau</th>
-                        <th>Quyen</th>
+                        <th>Tên tài khoản</th>
+                        <th>Mật khẩu</th>
+                        <th>Quyyền</th>
                        
                         <th style="width:30px;"></th>
                     </tr>

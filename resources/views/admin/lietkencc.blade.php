@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Them nha cung cap
+            Danh sách sản phẩm
         </div>
         <?php
         $message = Session::get('message');
@@ -38,7 +38,7 @@
                                 <input type="checkbox"><i></i>
                             </label>
                         </th>
-                        <th>Ten nha cung cap</th>
+                        <th>Tên nhà cung cấp</th>
                         <th>Dia chi</th>
                         <th>Email</th>
                         <th>SDT</th>
@@ -54,10 +54,10 @@
                             <td><span class="text-ellipsis">{{ $item->Email_ncc }}</span></td>
                             <td><span class="text-ellipsis">{{ $item->Sdt }}</span></td>
                             <td>
-                                <a href="{{ URL::to('/suancc/'.$item->Ma_ncc) }}" class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/suancc/'.$item->id) }}" class="active" ui-toggle-class=""><i
                                         class="fa fa-pencil-square-o text-success text-active"></i>
                                 </a>      
-                                <a href="{{ URL::to('/xoancc/'.$item->Ma_ncc) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/xoancc/'.$item->id) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
                         </tr>

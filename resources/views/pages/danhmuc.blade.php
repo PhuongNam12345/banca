@@ -11,9 +11,9 @@
                         <p>Hãy tìm kiếm sản phẩm bạn yêu thích</p>
                     </div>
                     <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="category.html">Shop</a>
-                        <a href="category.html">Women Fashion</a>
+                        <a href="index.html">Trang chủ</a>
+                        <a href="category.html">Cửa hàng</a>
+                        <a href="category.html">Danh mục sản phẩm</a>
                     </div>
                 </div>
             </div>
@@ -24,33 +24,36 @@
         <div class="container">
             <div class="row flex-row-reverse">
                 <div class="col-lg-9">
-
+                    <h2>Sản Phẩm </h2>
                     <div class="latest_product_inner">
                         <div class="row">
+
                             @foreach ($sp_loai as $key => $sp)
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-product">
                                         <div class="product-img">
-                                          <img class="img-fluid w-100" src="{{ URL::to('public/uploads/sanpham/' . $sp->Hinh) }}">
+                                            <img class="img-fluid w-75"
+                                                src="{{ URL::to('public/uploads/sanpham/' . $sp->Hinh) }}">
                                             <div class="p_icon">
-                                                <a href="#">
+                                                <a href="{{ URL::to('chitiet/' . $sp->id_sp) }}">
                                                     <i class="ti-eye"></i>
                                                 </a>
                                                 <a href="#">
                                                     <i class="ti-heart"></i>
                                                 </a>
-                                                <a href="#">
+
+                                                <a href="{{ URL::to('/giohang') }}" class="icons">
                                                     <i class="ti-shopping-cart"></i>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="product-btm">
                                             <a href="#" class="d-block">
-                                                <h4>{{$sp->Ten_sp }}</h4>
+                                                <h3>{{ $sp->Ten_sp }}</h3>
                                             </a>
                                             <div class="mt-3">
                                                 <span class="mr-4">{{ number_format($sp->Don_gia) . ' ' . 'VND' }}</span>
-                                             
+
                                             </div>
                                         </div>
                                     </div>
@@ -64,25 +67,25 @@
                     <div class="left_sidebar_area">
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
-                              <h3>Loại sản phẩm </h3>
+                                <h3>Loại sản phẩm </h3>
                             </div>
                             <div class="widgets_inner">
-                              <ul class="list">
-                                <li><a href="{{ URL::to('/danhmuc') }}">Tất cả</a>
-                                </li>
-                                  @foreach ($loaisp as $key => $item) 
-                                      <li>
-                                          <a href="{{ URL::to('/danh-muc/'. $item->Ma_loai_sp) }}">{{ $item->Ten_loai_sp }}</a>
-                                      </li>
-                                  @endforeach
-                              </ul>
-                          </div>
+                                <ul class="list">
+                                    <li><a href="{{ URL::to('/danhmuc') }}">Tất cả</a>
+                                    </li>
+                                    @foreach ($loaisp as $key => $item)
+                                        <li>
+                                            <a href="{{ URL::to('/danh-muc/' . $item->id) }}">{{ $item->Ten_loai_sp }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </aside>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!--================Category Product Area =================-->
-    
 @endsection

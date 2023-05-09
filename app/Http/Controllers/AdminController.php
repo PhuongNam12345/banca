@@ -10,8 +10,8 @@ class AdminController extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk = session::get('Ma_tk');
-        if ($ma_tk) {
+        $id = session::get('id');
+        if ($id) {
             return Redirect::to('/dashboard');
         } else {
             Session::put('message', 's xac!');
@@ -20,13 +20,28 @@ class AdminController extends Controller
     }
     public function logout()
     {
-        Session::put('Ma_tk', null);
+        Session::put('id', null);
         return view('admin');
     }
     public function admin()
     {
         return view('admin');
     }
+    public function dangki()
+    {
+        return view('admin.admindangki');
+    }
+    public function dang_ki(Request $request){
+   
+        $data=array();
+
+        $data['Tentaikhoan']=$request->tentaikhoan;
+        $data['Matkhau']=$request->matkhau;
+        $data['Quyen']='1';
+         DB::table('taikhoan')->insert($data);
+         Session::put('message','Them thanh cong!');
+         return Redirect::to('/admin');
+     }
 
     public function show_dashboard()
     {
@@ -36,14 +51,14 @@ class AdminController extends Controller
     public function dashboard(Request $request)
     {
         $admin_email = $request->admin_email;
-        $admin_pass = md5($request->admin_pass);
+        $admin_pass = ($request->admin_pass);
         $resut = DB::table('taikhoan')
             ->where('Tentaikhoan', $admin_email)
             ->where('Matkhau', $admin_pass)
             ->first();
         if ($resut) {
             if ($resut->Quyen == 1) {
-                Session::put('Ma_tk', $resut->Ma_tk);
+                Session::put('id', $resut->id);
                 return Redirect::to('/dashboard');
             }
         } else {

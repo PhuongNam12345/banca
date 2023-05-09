@@ -62,15 +62,20 @@
     </td> 
    </tr> 
    <tr> 
-    <td><a href="http://hocwebgiare.com/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
+    <td><a onclick="quay_lai_trang_truoc()"class="btn btn-warning">Tiếp tục mua hàng</a>
     </td> 
     <td colspan="2" class="hidden-xs"> </td> 
     <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
     </td> 
-    <td><a href="http://hocwebgiare.com/" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+    <td> class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
     </td> 
    </tr> 
   </tfoot> 
  </table>
 </div>
+<script>
+    function quay_lai_trang_truoc(){
+        history.back();
+    }
+</script>
 @endsection

@@ -13,7 +13,7 @@ class nhacungcap extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk= session::get('Ma_tk');
+        $ma_tk= session::get('id');
         if($ma_tk){
             return Redirect::to('/dashboard');
         }else{
@@ -35,7 +35,7 @@ class nhacungcap extends Controller
     public function themncc(Request $request){
         $this->Authlogin();
         $data=array();
-        $data['Ma_ncc']=$request->mancc;
+    
         $data['Ten_ncc']=$request->tenncc;
         $data['Diachi']=$request->diachi;
         $data['Email_ncc']=$request->email;
@@ -46,25 +46,25 @@ class nhacungcap extends Controller
      } 
      public function suancc($id_ma_ncc){
         $this->Authlogin();
-        $sua=DB::table('nhacungcap')->where('Ma_ncc',$id_ma_ncc)->get();
+        $sua=DB::table('nhacungcap')->where('id',$id_ma_ncc)->get();
         $manager=view('admin.suancc')->with ('suancc',$sua);
         return view('admin_layout')->with('admin.suancc',$manager);
     }
     public function sua_ncc(Request $request,$id_ma_ncc){  
         $this->Authlogin(); 
         $data=array();
-        $data['Ma_ncc']=$request->mancc;
+
         $data['Ten_ncc']=$request->tenncc;
         $data['Diachi']=$request->diachi;
         $data['Email_ncc']=$request->email;
         $data['Sdt']=$request->sdt;
-         DB::table('nhacungcap')->where('Ma_ncc',$id_ma_ncc)->update($data);
+         DB::table('nhacungcap')->where('id',$id_ma_ncc)->update($data);
          Session::put('message','cap nhat thanh cong!');
          return Redirect::to('/lietkencc');
      }  
      public function xoancc($id_ma_ncc){
         $this->Authlogin();
-        DB::table('nhacungcap')->where('Ma_ncc',$id_ma_ncc)->delete();
+        DB::table('nhacungcap')->where('id',$id_ma_ncc)->delete();
         Session::put('message','Xoa thanh cong!');
         return Redirect::to('/lietkencc'); 
      }

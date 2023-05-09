@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <head>
-<title>Visitors an Admin Panel Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -58,15 +58,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </li>
         <!-- user login dropdown start-->
         <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="{{ URL::to('/logout') }}">
+            <a data-toggle="dropdown" class="dropdown-toggle"href="#" >
                 <img alt="" src="images/2.png">
-                <span class="username">John sssDoe</span>
+                <span class="username">Admin</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Ca nhan</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Cai dat</a></li>
-                <li><a href="{{ URL::to('/logout') }}"><i class="fa fa-key"></i> Dang Xuat</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> </a></li>
+                <li><a href="{{ URL::to('/logout') }}"><i class="fa fa-key"></i> Đăng xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -90,35 +90,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{URL::to('/lietkedanhmuc')}}">
                         <i class="fa fa-book"></i>
-                        <span>Danh muc</span>
+                        <span>Loại Sản Phẩm</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/themdanhmuc')}}">Them danh muc</a></li>
-						<li><a href="{{URL::to('/lietkedanhmuc')}}">Liet Ke</a></li>
+						<li><a href="{{URL::to('/themdanhmuc')}}"> Thêm loại sản phẩm</a></li>
+						<li><a href="{{URL::to('/lietkedanhmuc')}}">Danh sách loại sản phẩm</a></li>
                         
                     </ul>
                 </li>
 				<li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{URL::to('/lietkencc')}}">
                         <i class="fa fa-book"></i>
-                        <span>Danh muc</span>
+                        <span>Nhà Cung Cấp</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/themncc')}}">Them nha cung cap</a></li>
-						<li><a href="{{URL::to('/lietkencc')}}">Liet Ke</a></li>
+						<li><a href="{{URL::to('/themncc')}}">Thêm nhà cung cấp</a></li>
+						<li><a href="{{URL::to('/lietkencc')}}">Danh sách nhà cung cấp</a></li>
                         
                     </ul>
                 </li>
 				<li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{URL::to('/lietkesanpham')}}">
                         <i class="fa fa-book"></i>
-                        <span>San pham</span>
+                        <span>Sản Phẩm</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/themsanpham')}}">Them san pham</a></li>
-						<li><a href="{{URL::to('/lietkesanpham')}}">Liet Ke</a></li>
+						<li><a href="{{URL::to('/themsanpham')}}">Thêm sản phẩm</a></li>
+						<li><a href="{{URL::to('/lietkesanpham')}}">Danh sách sản phẩm</a></li>
                         
                     </ul>
                 </li>
@@ -135,22 +135,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 </section>
  <!-- footer -->
-		  <div class="footer">
+		  {{-- <div class="footer">
 			<div class="wthree-copyright">
 			  <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 			</div>
-		  </div>
+		  </div> --}}
   <!-- / footer -->
 </section>
 <!--main content end-->
 </section>
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="{{ asset('js/jquery.dcjqaccordion.2.7.js') }}"></script>
-<script src="{{ asset('js/scripts.js') }}"></script>
-<script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
-<script src="{{ asset('js/jquery.nicescroll.js') }}"></script>
+<script src="{{ asset('public/backend/js/bootstrap.js') }}"></script>
+<script src="{{ asset('public/backend/js/jquery.dcjqaccordion.2.7.js') }}"></script>
+<script src="{{ asset('public/backend/js/scripts.js') }}"></script>
+<script src="{{ asset('public/backend/js/jquery.slimscroll.js') }}"></script>
+<script src="{{ asset('public/backend/js/jquery.nicescroll.js') }}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="{{ asset('js/jquery.scrollTo.js') }}"></script>
+<script src="{{ asset('public/backend/js/jquery.scrollTo.js') }}"></script>
 <!-- morris JavaScript -->	
 <script>
 	$(document).ready(function() {
@@ -208,7 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 	</script>
 <!-- calendar -->
-	<script type="text/javascript" src="js/monthly.js"></script>
+	<script type="text/javascript" src="{{ asset('public/backend/js/monthly.js') }}"></script>
 	<script type="text/javascript">
 		$(window).load( function() {
 
