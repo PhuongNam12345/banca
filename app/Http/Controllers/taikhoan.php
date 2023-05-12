@@ -12,18 +12,21 @@ class taikhoan extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk = session::get('id');
-        if ($ma_tk) {
+        $id = session::get('id');
+        if ($id) {
             return Redirect::to('/dashboard');
         } else {
-            Session::put('message', 's xac!');
+            Session::put('message', 'Vui lòng đăng nhập');
             return Redirect::to('/admin')->send();
         }
     }
     public function lietketaikhoan()
     {
         $this->Authlogin();
-        $lietke = DB::table('taikhoan')->get();
+        $lietke = DB::table('taikhoan')->paginate(4);
+        if($key=request()->tukhoa){
+            $lietke = DB::table('taikhoan')->where('Ten_tk','like','%'.$key.'%')->paginate(4);
+        }
         $manager = view('admin.lietketaikhoan')->with('lietketaikhoan', $lietke);
         return view('admin_layout')->with('admin.lietketaikhoan', $manager);
     }
@@ -37,11 +40,11 @@ class taikhoan extends Controller
         $this->Authlogin();
         $data = [];
         $data['Tentaikhoan'] = $request->tentk;
-        $data['Matkhau'] = md5($request->matkhau);
+        $data['Matkhau'] = $request->matkhau;
         $data['Quyen'] = $request->quyen;
 
         DB::table('taikhoan')->insert($data);
-        Session::put('message', 'Them thanh cong!');
+        Session::put('message', 'Thêm thành công!');
         return Redirect::to('/lietketaikhoan');
     }
     public function suataikhoan($id_ma_tk)
@@ -58,12 +61,12 @@ class taikhoan extends Controller
         $this->Authlogin();
         $data = [];
         $data['Tentaikhoan'] = $request->tentk;
-        $data['Matkhau'] = md5($request->matkhau);
+        $data['Matkhau'] = $request->matkhau;
         $data['Quyen'] = $request->quyen;
         DB::table('taikhoan')
             ->where('id', $id_ma_tk)
             ->update($data);
-        Session::put('message', 'cap nhat thanh cong!');
+        Session::put('message', 'Cập nhật thành công!');
         return Redirect::to('/lietketaikhoan');
     }
     public function xoataikhoan($id_ma_tk)
@@ -72,7 +75,7 @@ class taikhoan extends Controller
         DB::table('taikhoan')
             ->where('id', $id_ma_tk)
             ->delete();
-        Session::put('message', 'Xoa thanh cong!');
+        Session::put('message', 'Xóa thành công!');
         return Redirect::to('/lietketaikhoan');
     }
 }

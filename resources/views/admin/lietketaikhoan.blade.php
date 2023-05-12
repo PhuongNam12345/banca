@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Them tai khoan
+            Danh sách tài khoản
         </div>
         <?php
         $message = Session::get('message');
@@ -13,10 +13,7 @@
         ?>
         <div class="row w3-res-tb">
             <div class="col-sm-5 m-b-xs">
-                <select class="input-sm form-control w-sm inline v-middle">
-                
-                </select>
-                <button class="btn btn-sm btn-default">Apply</button>
+           
             </div>
             <div class="col-sm-4">
             </div>
@@ -24,7 +21,7 @@
                 <div class="input-group">
                     <input type="text" class="input-sm form-control" placeholder="Search">
                     <span class="input-group-btn">
-                        <button class="btn btn-sm btn-default" type="button">Go!</button>
+                        <button class="btn btn-sm btn-default" type="submit">Tìm kiếm</button>
                     </span>
                 </div>
             </div>
@@ -40,7 +37,7 @@
                         </th>
                         <th>Tên tài khoản</th>
                         <th>Mật khẩu</th>
-                        <th>Quyyền</th>
+                        <th>Quyền</th>
                        
                         <th style="width:30px;"></th>
                     </tr>
@@ -54,10 +51,10 @@
                             <td><span class="text-ellipsis">{{ $item->Quyen }}</span></td>
                 
                             <td>
-                                <a href="{{ URL::to('/suataikhoan/'.$item->Ma_tk) }}" class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/suataikhoan/'.$item->id) }}" class="active" ui-toggle-class=""><i
                                         class="fa fa-pencil-square-o text-success text-active"></i>
                                 </a>      
-                                <a href="{{ URL::to('/xoataikhoan/'.$item->Ma_tk) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/xoataikhoan/'.$item->id) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
                         </tr>
@@ -65,5 +62,6 @@
                 </tbody>
             </table>
         </div>
+        <div> {{ $lietketaikhoan->appends(REQUEST()->all())->links() }}</div>
     </div>
 @endsection

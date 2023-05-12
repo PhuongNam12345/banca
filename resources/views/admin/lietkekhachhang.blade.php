@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Danh sách sản phẩm
+            Danh sách khách hàng
         </div>
         <?php
         $message = Session::get('message');
@@ -12,19 +12,20 @@
         }
         ?>
         <div class="row w3-res-tb">
-         
+            <div class="col-sm-5 m-b-xs">
+               
+            </div>
             <div class="col-sm-4">
             </div>
             <div class="col-sm-3">
                 <form action="">
-                <div class="input-group">
-                    <input type="text" class="input-sm form-control" name="tukhoa" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-sm btn-default" type="submit">Tìm kiếm</button>
-                    </span>
-                </div>
-                </form>
-                
+                    <div class="input-group">
+                        <input type="text" class="input-sm form-control" name="tukhoa" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-sm btn-default" type="submit">Tìm kiếm</button>
+                        </span>
+                    </div>
+                    </form>
             </div>
         </div>
         <div class="table-responsive">
@@ -36,26 +37,30 @@
                                 <input type="checkbox"><i></i>
                             </label>
                         </th>
-                        <th>Tên nhà cung cấp</th>
-                        <th>Dia chi</th>
+                        <th>Tên khách hàng</th>
+                        <th>Giới tính</th>
                         <th>Email</th>
                         <th>SDT</th>
+                        <th>Địa chỉ</th>
+                        <th>Tài khoản</th>
                         <th style="width:30px;"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($lietkencc as $key => $item)                                   
+                    @foreach($lietkekhachhang as $key => $item)                                   
                         <tr>
                             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                            <td>{{ $item->Ten_ncc }}</td>
-                            <td><span class="text-ellipsis">{{ $item->Diachi }}</span></td>
-                            <td><span class="text-ellipsis">{{ $item->Email_ncc }}</span></td>
-                            <td><span class="text-ellipsis">{{ $item->Sdt }}</span></td>
+                            <td>{{ $item->Ten_kh }}</td>
+                            <td>{{ $item->Gioitinh }}</td>
+                            <td>{{ $item->Email_kh }}</td>
+                            <td>{{ $item->Sdt }}</td>
+                            <td>{{ $item->Diachi }}</td>
+                            <td>{{ $item->taikhoan_id }}</td>
                             <td>
-                                <a href="{{ URL::to('/suancc/'.$item->id) }}" class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/suakhachhang/'.$item->id) }}" class="active" ui-toggle-class=""><i
                                         class="fa fa-pencil-square-o text-success text-active"></i>
                                 </a>      
-                                <a href="{{ URL::to('/xoancc/'.$item->id) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
+                                <a href="{{ URL::to('/xoakhachhang/'.$item->id) }}" onclick="return confirm('are you sure?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
                         </tr>
@@ -63,6 +68,6 @@
                 </tbody>
             </table>
         </div>
-        <div> {{ $lietkencc->appends(REQUEST()->all())->links() }}</div>
+        <div> {{ $lietkekhachhang->appends(REQUEST()->all())->links() }}</div>
     </div>
 @endsection

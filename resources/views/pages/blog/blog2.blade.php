@@ -1,7 +1,7 @@
    <!--================Blog Area =================-->
    @extends('welcome')
    @section('content')
-       <section class="blog_area single-post-area section_gap">
+       <section class="blog_area single-post-area section_gap_blog">
            <div class="container">
                <div class="row">
                    <div class="col-lg-12 posts-list">

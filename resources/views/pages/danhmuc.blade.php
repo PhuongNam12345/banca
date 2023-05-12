@@ -3,26 +3,49 @@
     <!--================Header Menu Area =================-->
     <!--================Home Banner Area =================-->
     <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-            <div class="container">
-                <div class="banner_content d-md-flex justify-content-between align-items-center">
-                    <div class="mb-3 mb-md-0">
-                        <h2>Sản phẩm tại cửa hàng</h2>
-                        <p>Hãy tìm kiếm sản phẩm bạn yêu thích</p>
-                    </div>
-                    <div class="page_link">
-                        <a href="index.html">Trang chủ</a>
-                        <a href="category.html">Cửa hàng</a>
-                        <a href="category.html">Danh mục sản phẩm</a>
-                    </div>
-                </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active h-50">
+                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/cabanner.jpg')}}" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/aa1.jpg')}}" alt="Second slide">
+              </div>
+              <div class="carousel-item">   
+                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/aa2..jpg')}}" alt="Third slide">
+              </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
         </div>
     </section>
     <!--================End Home Banner Area =================-->
     <section class="cat_product_area section_gap">
         <div class="container">
-            <div class="row flex-row-reverse">
+            <div class="col-sm-3 ml-auto ">
+                {{-- {{ URL::to('timkiem/')}}      @csrf--}}
+                <form action="" >
+               
+                <div class="input-group">
+                    <input type="text" class="input-sm form-control" name="tukhoa" placeholder="Tìm kiếm">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" ><i class="fas fa-search"></i></button>
+                    </span>
+                </div>
+                </form>
+            </div>
+            <div class="row flex-row-reverse">        
                 <div class="col-lg-9">
                     <h2>Sản Phẩm </h2>
                     <div class="latest_product_inner">
@@ -42,7 +65,7 @@
                                                     <i class="ti-heart"></i>
                                                 </a>
 
-                                                <a href="{{ URL::to('/giohang') }}" class="icons">
+                                                <a href="#" data-url="{{ Route('themgiohang',['id'=>$sp->id_sp]) }}" class="icons">
                                                     <i class="ti-shopping-cart"></i>
                                                 </a>
                                             </div>
@@ -60,7 +83,9 @@
                                 </div>
                             @endforeach
                         </div>
+                        {{-- <div> {{ $sp_loai->appends(REQUEST()->all())->links() }}</div> --}}
                     </div>
+                    
                 </div>
 
                 <div class="col-lg-3">
@@ -80,12 +105,16 @@
                                     @endforeach
                                 </ul>
                             </div>
+                       
                         </aside>
+                  
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
+    
 
     <!--================Category Product Area =================-->
 @endsection

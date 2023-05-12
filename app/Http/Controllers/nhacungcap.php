@@ -13,19 +13,22 @@ class nhacungcap extends Controller
 {
     public function Authlogin()
     {
-        $ma_tk= session::get('id');
-        if($ma_tk){
+        $id= session::get('id');
+        if($id){
             return Redirect::to('/dashboard');
         }else{
-            Session::put('message','s xac!');
+            Session::put('message', 'Vui lòng đăng nhập');
             return Redirect::to('/admin')->send();
         }
     }
     public function lietkencc(){
         
         $this->Authlogin();
-        $lietke=DB::table('nhacungcap')->get();
-        $manager=view('admin.lietkencc')->with ('lietkencc',$lietke);
+        $lietke=DB::table('nhacungcap')->paginate(3 );
+      
+        if($key=request()->tukhoa){
+            $lietke=DB::table('nhacungcap')->where('Ten_ncc','like','%'.$key.'%')->paginate(3 );
+        }  $manager=view('admin.lietkencc')->with ('lietkencc',$lietke);
         return view('admin_layout')->with('admin.lietkencc',$manager);
     }
     public function them_ncc(){
@@ -59,13 +62,13 @@ class nhacungcap extends Controller
         $data['Email_ncc']=$request->email;
         $data['Sdt']=$request->sdt;
          DB::table('nhacungcap')->where('id',$id_ma_ncc)->update($data);
-         Session::put('message','cap nhat thanh cong!');
+         Session::put('message','Cập nhật thành công!');
          return Redirect::to('/lietkencc');
      }  
      public function xoancc($id_ma_ncc){
         $this->Authlogin();
         DB::table('nhacungcap')->where('id',$id_ma_ncc)->delete();
-        Session::put('message','Xoa thanh cong!');
+        Session::put('message','Xóa thành công!');
         return Redirect::to('/lietkencc'); 
      }
 }

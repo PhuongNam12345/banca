@@ -34,6 +34,10 @@
                         <input name="dongia" class="form-control" id="exampleInputEmail1" placeholder="Đơn giá ">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Số lượng</label>
+                        <input name="soluong" class="form-control" id="exampleInputEmail1" placeholder="Số lượng ">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Hình ảnh</label>
                         <input name="hinhanh" class="form-control" type="file" id="exampleInputEmail1"
                             placeholder="Ten danh muc">

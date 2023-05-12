@@ -17,7 +17,7 @@ class danhmucsanpham extends Controller
         if($id){
             return Redirect::to('/dashboard');
         }else{
-            Session::put('message','s xac!');
+            Session::put('message', 'Vui lòng đăng nhập');
             return Redirect::to('/admin')->send();
         }
     }
@@ -32,13 +32,16 @@ class danhmucsanpham extends Controller
        $data['Ten_loai_sp']=$request->tendanhmuc;
        $data['Mo_ta']=$request->mota;
         DB::table('loaisp')->insert($data);
-        Session::put('message','Them thanh cong!');
+        Session::put('message','Thêm thành công!');
         return Redirect::to('/lietkedanhmuc');
     }  
     public function lietkedanhmuc(){
         
         $this->Authlogin();
-        $lietke=DB::table('loaisp')->get();
+        $lietke=DB::table('loaisp')->paginate(3);
+        if($key=request()->tukhoa){
+            $lietke=DB::table('loaisp')->where('Ten_loai_sp','like','%'.$key.'%')->paginate(3);
+        }
         $manager=view('admin.lietkedanhmuc')->with ('lietkedanhmuc',$lietke);
         return view('admin_layout')->with('admin.lietkedanhmuc',$manager);
     }
@@ -55,12 +58,12 @@ class danhmucsanpham extends Controller
         $data['Ten_loai_sp']=$request->tendanhmuc;
         $data['Mo_ta']=$request->mota;
          DB::table('loaisp')->where('id',$id_ma_loai_sp)->update($data);
-         Session::put('message','cap nhat thanh cong!');
+         Session::put('message','Cập nhật thành công!');
          return Redirect::to('/lietkedanhmuc');
      }  
      public function xoadanhmuc($id_ma_loai_sp){
         DB::table('loaisp')->where('id',$id_ma_loai_sp)->delete();
-        Session::put('message','Xoa thanh cong!');
+        Session::put('message','Xóa thành công!');
         return Redirect::to('/lietkedanhmuc'); 
      }
 

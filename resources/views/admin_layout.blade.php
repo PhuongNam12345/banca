@@ -28,7 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="{{ asset('public/backend/css/monthly.css') }}">
 <!-- //calendar -->
 <!-- //font-awesome icons -->
-<script src="{{ asset('public/backend/s/jquery2.0.3.min.js') }}"></script>
+<script src="{{ asset('public/backend/js/jquery2.0.3.min.js') }}"></script>
 <script src="{{ asset('public/backend/js/raphael-min.js') }}"></script>
 <script src="{{ asset('public/backend/js/morris.js') }}"></script>
 </head>
@@ -58,14 +58,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </li>
         <!-- user login dropdown start-->
         <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle"href="#" >
+            <a data-toggle="dropdown" class="dropdown-toggle"href=""> 
                 <img alt="" src="images/2.png">
                 <span class="username">Admin</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Ca nhan</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> </a></li>
+                {{-- <li><a href="#"><i class=" fa fa-suitcase"></i>Ca nhan</a></li> --}}
                 <li><a href="{{ URL::to('/logout') }}"><i class="fa fa-key"></i> Đăng xuất</a></li>
             </ul>
         </li>
@@ -102,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 				<li class="sub-menu">
                     <a href="{{URL::to('/lietkencc')}}">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-user-secret"></i>
                         <span>Nhà Cung Cấp</span>
                     </a>
                     <ul class="sub">
@@ -119,6 +118,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/themsanpham')}}">Thêm sản phẩm</a></li>
 						<li><a href="{{URL::to('/lietkesanpham')}}">Danh sách sản phẩm</a></li>
+                      
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="{{URL::to('/lietkekhachhang')}}">
+                        <i class="fa fa-book"></i>
+                        <span>Khách hàng</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/themkhachhang')}}">Thêm khách hàng</a></li>
+						<li><a href="{{URL::to('/lietkekhachhang')}}">Danh sách khách hàng</a></li>
+                      
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="{{URL::to('/lietketaikhoan')}}">
+                        <i class="fa fa-user"></i>
+                        <span>Tài khoản</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/themtaikhoan')}}">Thêm tài khoản</a></li>
+						<li><a href="{{URL::to('/lietketaikhoan')}}">Danh sách tài khoản</a></li>
+                        
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="{{URL::to('/lietketaikhoan')}}">
+                        <i class="  fa fa-shopping-cart"></i>
+                        <span>Giò hàng</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/themtaikhoan')}}"></a></li>
+						<li><a href="{{URL::to('/lietketaikhoan')}}">Danh sách tài khoản</a></li>
                         
                     </ul>
                 </li>

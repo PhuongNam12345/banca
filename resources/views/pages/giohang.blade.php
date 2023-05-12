@@ -12,14 +12,16 @@
     <th style="width:10%"> </th> 
    </tr> 
   </thead> 
-  <tbody><tr> 
+  <tbody>
+    @foreach($sanpham as $key=>$item)
+    <tr> 
    <td data-th="Product"> 
     <div class="row"> 
      <div class="col-sm-2 hidden-xs"><img src="#" alt="Sản phẩm 1" class="img-responsive" width="100">
      </div> 
      <div class="col-sm-10"> 
-      <h4 class="nomargin">Sản phẩm 1</h4> 
-      <p>Mô tả của sản phẩm 1</p> 
+      <h4 class="nomargin">{{$item->Ten_sp  }}</h4> 
+      <p>{{$item->Mota  }}</p> 
      </div> 
     </div> 
    </td> 
@@ -34,28 +36,7 @@
     </button>
    </td> 
   </tr> 
-  <tr> 
-   <td data-th="Product"> 
-    <div class="row"> 
-     <div class="col-sm-2 hidden-xs"><img src="#" alt="Sản phẩm 1" class="img-responsive" width="100">
-     </div> 
-     <div class="col-sm-10"> 
-      <h4 class="nomargin">Sản phẩm 2</h4> 
-      <p>Mô tả của sản phẩm 2</p> 
-     </div> 
-    </div> 
-   </td> 
-   <td data-th="Price">300.000 đ</td> 
-   <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-   </td> 
-   <td data-th="Subtotal" class="text-center">300.000 đ</td> 
-   <td class="actions" data-th="">
-    <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-    </button> 
-    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-    </button>
-   </td> 
-  </tr> 
+  @endforeach
   </tbody><tfoot> 
    <tr class="visible-xs"> 
     <td class="text-center"><strong>Tổng 200.000 đ</strong>
@@ -67,7 +48,7 @@
     <td colspan="2" class="hidden-xs"> </td> 
     <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
     </td> 
-    <td> class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+    <td class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
     </td> 
    </tr> 
   </tfoot> 

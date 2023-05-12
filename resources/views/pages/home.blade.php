@@ -1,6 +1,7 @@
 @extends('welcome')
 @section('content')
-<section class="home_banner_area mb-40">
+
+<section class="home_banner_area ">
   <div class="banner_inner d-flex align-items-center">
     <div class="container">
       <div class="banner_content row">
@@ -110,7 +111,7 @@
     
   </div>
 </section>
-<section class="feature_product_area section_gap_bottom_custom_3">
+<section class="feature_product_area section_gap_bottom_custom_2">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-12">
@@ -206,7 +207,7 @@
   <!--================ End New Product Area =================-->
 
   <!--================ Inspired Product Area =================-->
-      <section class="blog-area section-gap">
+      <section class="blog-area section-gap_4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -233,7 +234,7 @@
                       Chú cá vàng đầu lân Rocky được bán với giá lên đến gần 5.600 USD do kích thước lớn và mức độ quý hiếm.
                     </p>
                   </div>
-                  <a href="#" class="blog_btn">Đọc thêm <span class="ml-2 ti-arrow-right"></span></a>
+                  <a href="{{ URL::to('blog/') }}" class="blog_btn">Đọc thêm <span class="ml-2 ti-arrow-right"></span></a>
                 </div>
               </div>
             </div>
@@ -253,7 +254,7 @@
                       Theo nghiên cứu của các nhà khoa học Anh, ngắm cá cảnh có tác dụng hạ huyết áp và nhịp tim, đồng thời cải thiện tâm trạng của con người.
                     </p>
                   </div>
-                  <a href="#" class="blog_btn">Đọc thêm <span class="ml-2 ti-arrow-right"></span></a>
+                  <a href="{{ URL::to('blog/') }}" class="blog_btn">Đọc thêm <span class="ml-2 ti-arrow-right"></span></a>
                 </div>
               </div>
             </div>
@@ -275,7 +276,7 @@
                       Nổi tiếng với biệt danh "Kenny the Fish", Kenny Yap hiện nuôi tới hơn 1.000 giống cá cảnh, vừa phục vụ trong nước, vừa xuất khẩu sang hơn 80 quốc gia.  
                     </p>
                   </div>
-                  <a href="#" class="blog_btn">Đọc thêm<span class="ml-2 ti-arrow-right"></span></a>
+                  <a href="{{ URL::to('blog/') }}" class="blog_btn">Đọc thêm<span class="ml-2 ti-arrow-right"></span></a>
                 </div>
               </div>
             </div>

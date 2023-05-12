@@ -23,17 +23,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div class="reg-w3">
 <div class="w3layouts-main">
-	<h2>Register Now</h2>
-		<form action="#" method="post">
+	<h2>Đăng Kí</h2>
+		<form action="{{ URL::to('dang-ki') }}" method="post">
             @csrf
-            <input type="text" name="tenkh" placeholder="Họ Tên" required="">
-            <input type="text"  name="ngaysinh" placeholder="Ngày sinh" required="">
-			<input type="text"  name="gioitinh" placeholder="Giới tính" required="">
-			<input type="email"  name="email" placeholder="Email" required="">
-			<input type="text"  name="sdt" placeholder="SDT" required="">
-            <input type="text" class="diachi" name="diachi" placeholder="Địa chỉ" required="">
-			<input type="password" name="Password" placeholder="PASSWORD" required="">
-			<h4><input type="checkbox" />I agree to the Terms of Service and Privacy Policy</h4>
+            <input type="text" class="ggg" name="tenkh" placeholder="Họ Tên" required="">
+			<select name="gioitinh" class="form-control" class="ggg" >
+				
+					<option value="2">Nữ</option>
+					<option value="1">Nam</option>
+				
+			</select>
+			<input type="email" class="ggg" name="email" placeholder="Điền email" required="">
+			<input type="text" class="ggg" name="sdt" placeholder="Điền SDT" required="">
+			<input type="text" class="ggg" name="diachi" placeholder="Điền Địa Chỉ" required="">
+            <input type="text" class="ggg" name="tentk" placeholder="Tên tài khoản" required="">
+			<input type="password" class="ggg" name="matkhau" placeholder="Mật khẩu" required="">
+			{{-- <h4><input type="checkbox" />I agree to the Terms of Service and Privacy Policy</h4> --}}
 			
 				<div class="clearfix"></div>
 				<input type="submit" value="submit" name="register">

@@ -25,11 +25,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{ asset('public/backend/css/font-awesome.css') }}" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <script src="{{ asset('public/backend/js/jquery2.0.3.min.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+<!-- font awesome 5.13.1 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
 </head>
 <body>
 <div class="log-w3">
 <div class="w3layouts-main">
-	<h2>Sign In Now</h2>
+	<h2>Đăng Nhập</h2>
 	<?php
 	$message=Session::get('message');
 	if($message)
@@ -40,16 +43,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	?>
 		<form action="{{ URL::to('/admin-dashboard') }}" method="post">
 			@csrf
-			<input type="text" class="ggg" name="admin_email" placeholder="Điền email" required="">
-			<input type="password" class="ggg" name="admin_pass" placeholder="Điền password" required="">
-			<span><input type="checkbox" />Remember Me</span>
-			<h6><a href="#">Forgot Password?</a></h6>
+			<div >
+			<input type="text" class="ggg" name="admin_email" placeholder="Điền email" required=""></div>
+			<input type="password" class="ggg" id="ipnPassword" name="admin_pass" placeholder="Điền mật khẩu" required=""  />
+			<div class="input-group-append"> 
+			  <button class="btn " type="button" id="btnPassword" >
+				<span class="fas fa-eye"></span>
+			  </button>
+			</div>
+			{{-- <h6><a href="#">Forgot Password?</a></h6> --}}
 				<div class="clearfix"></div>
 				<input type="submit" value="Sign In" name="login">
 		</form>
-		<p>Don't Have an Account ?<a href="registration.html">Create an account</a></p>
+		<p>Bạn chưa có tài khoản?<a href="{{ URL::to('dangki/') }}">Đăng kí</a></p>
+		<div class="nav"><a href="javascript:history.go(-1)" class="btn btn-outline-danger">Trở lại </a>
+		<a href="{{ URL::to('/') }}" class="btn btn-outline-danger ml-auto">Trang Chủ </a> </div>
 </div>
 </div>
+<script>
+// step 1
+const ipnElement = document.querySelector('#ipnPassword')
+const btnElement = document.querySelector('#btnPassword')
+
+// step 2
+btnElement.addEventListener('click', function() {
+  // step 3
+  const currentType = ipnElement.getAttribute('type')
+  // step 4
+  ipnElement.setAttribute(
+    'type',
+    currentType === 'password' ? 'text' : 'password'
+  )
+})
+</script>
 <script src="{{ asset('public/backend/js/bootstrap.js') }}"></script>
 <script src="{{ asset('public/backend/js/jquery.dcjqaccordion.2.7.js') }}"></script>
 <script src="{{ asset('public/backend/js/scripts.js') }}"></script>

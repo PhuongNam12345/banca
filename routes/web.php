@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controllername;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\danhmucsanpham;
+use App\Http\Controllers\khachhang;
 use App\Http\Controllers\sanpham;
 use App\Http\Controllers\nhacungcap;
+use App\Http\Controllers\taikhoan;
+use App\Http\Controllers\giohang;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +21,7 @@ use App\Http\Controllers\nhacungcap;
 */
 Route::get('/', [Controllername::class, 'index']);
 Route::get('/dangki', [AdminController::class, 'dangki']);
+Route::post('/dang-ki', [AdminController::class, 'dang_ki']);
 Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::get('/logout', [AdminController::class, 'logout']);
@@ -36,6 +40,20 @@ Route::post('/them-ncc', [nhacungcap::class, 'themncc']);
 Route::get('/suancc/{id_ma_ncc}', [nhacungcap::class, 'suancc']);
 Route::post('/sua-ncc/{id_ma_ncc}', [nhacungcap::class, 'sua_ncc']);
 Route::get('/xoancc/{id_ma_ncc}', [nhacungcap::class, 'xoancc']);
+//khachhang
+Route::get('/lietkekhachhang', [khachhang::class, 'lietkekhachhang']);
+Route::get('/themkhachhang', [khachhang::class, 'them_khachhang']);
+Route::post('/them-khachhang', [khachhang::class, 'themkhachhang']);
+Route::get('/suakhachhang/{id_kh}', [khachhang::class, 'suakhachhang']);
+Route::post('/sua-khachhang/{id_kh}', [khachhang::class, 'sua_khachhang']);
+Route::get('/xoakhachhang/{id_kh}', [khachhang::class, 'xoakhachhang']);
+//taikhoan
+Route::get('/lietketaikhoan', [taikhoan::class, 'lietketaikhoan']);
+Route::get('/themtaikhoan', [taikhoan::class, 'them_taikhoan']);
+Route::post('/them-taikhoan', [taikhoan::class, 'themtaikhoan']);
+Route::get('/suataikhoan/{id_ma_tk}', [taikhoan::class, 'suataikhoan']);
+Route::post('/sua-taikhoan/{id_ma_tk}', [taikhoan::class, 'sua_taikhoan']);
+Route::get('/xoataikhoan/{id_ma_tk}', [taikhoan::class, 'xoataikhoan']);
 //sanpham
 Route::get('/lietkesanpham', [sanpham::class, 'lietkesanpham']);
 Route::get('/themsanpham', [sanpham::class, 'them_sanpham']);
@@ -44,13 +62,19 @@ Route::get('/suasanpham/{id_ma_sp}', [sanpham::class, 'suasanpham']);
 Route::post('/sua-sanpham/{id_ma_sp}', [sanpham::class, 'sua_sanpham']);
 Route::get('/xoasanpham/{id_ma_sp}', [sanpham::class, 'xoasanpham']);
 Route::get('/chitiet/{id_ma_sp}', [sanpham::class, 'chitietsanpham']);
-
+// Route::get('/chitiet/{id_ma_sp}', [sanpham::class, 'binhluan']);
+//cart
+Route::post('/save-cart', [giohang::class, 'giohang']);
 //danh muc home
+Route::get('/loaisp/{id_ma_loai_sp}', [Controllername::class, 'loaisp']);
 Route::get('/danhmuc', [Controllername::class, 'danhmuc']);
+// Route::post('/timkiem', [Controllername::class, 'timkiem']);
+Route::get('/lienhe', [Controllername::class, 'lienhe']);
 // Route::get('/chitiet', [Controllername::class, 'chitiet']);
 Route::get('/', [Controllername::class, 'index']);
 Route::get('/danh-muc/{id_ma_loai_sp}', [danhmucsanpham::class, 'hienthi']);
 Route::get('/giohang', [sanpham::class, 'giohang']);
+// route ::get(uri:'products/add-to/{id}', action: 'giohang@themgiohang')->name(name:'themgiohang');
 Route::get('/blog', [Controllername::class, 'blog']);
 Route::get('/blog1', [Controllername::class, 'blog1']);
 Route::get('/blog2', [Controllername::class, 'blog2']);

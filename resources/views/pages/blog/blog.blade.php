@@ -1,7 +1,7 @@
    <!--================Blog Area =================-->
    @extends('welcome')
    @section('content')
-       <section class="blog_area single-post-area section_gap">
+       <section class="blog_area single-post-area section_gap_blog">
            <div class="container">
                <div class="row">
                    <div class="col-lg-12 posts-list">
@@ -25,7 +25,7 @@
                                 Singapore tuy là nước nhỏ, nhưng đóng góp tới 20% nguồn cung cá cảnh trên thế giới. Trong đó, Qian Hu chiếm 5%. Ông đang lên kế hoạch tăng gấp đôi tỷ lệ này trong 5 năm tới.
 
                                </span>
-                               <img class="img-fluid w-75" src="{{('public/frontend/img/banner/ca.jpg')}}" alt="" />
+                               <img class="img-fluid w-50 center" src="{{('public/frontend/img/banner/ca.jpg')}}" alt="" />
                                <div>
                                <span>
                                 Việc này không hề dễ dàng. Cha và chú của Kenny trước đây chỉ nuôi lợn. Nhưng sau khi ngành này bị Chính phủ Singapore liệt vào danh sách gây ô nhiễm môi trường thập niên 80, họ đã phải chuyển hướng kinh doanh.

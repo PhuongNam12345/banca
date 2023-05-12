@@ -1,7 +1,7 @@
    <!--================Blog Area =================-->
    @extends('welcome')
    @section('content')
-       <section class="blog_area single-post-area section_gap">
+       <section class="blog_area single-post-area section_gap_blog">
            <div class="container">
                <div class="row">
                    <div class="col-lg-12 posts-list">
@@ -17,6 +17,8 @@
                                </ul>
                                <span class="excert">
                                 Theo nghiên cứu của các nhà khoa học Anh, ngắm cá cảnh có tác dụng hạ huyết áp và nhịp tim, đồng thời cải thiện tâm trạng của con người.
+                                Ngắm cá cảnh là giải pháp giảm căng thẳng, mệt mỏi của không ít người, nhất là những người làm việc trong môi trường văn phòng, thường xuyên tiếp xúc với máy tính, giấy tờ… Trên thực tế, nghiên cứu của không ít chuyên gia cũng khẳng định rằng: Ngắm cá cảnh giảm bớt căng thẳng và xả stress. 
+                                Bởi chúng có tác động trực tiếp tới tâm lý, huyết áp và nhịp tim của mọi người.
 
                                </span>
                                <img class="img-fluid w-75" src="{{('public/frontend/img/banner/ca1.jpg')}}" alt="" />

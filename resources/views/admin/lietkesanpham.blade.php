@@ -13,20 +13,20 @@
         ?>
         <div class="row w3-res-tb">
             <div class="col-sm-5 m-b-xs">
-                <select class="input-sm form-control w-sm inline v-middle">
-                
-                </select>
-                <button class="btn btn-sm btn-default">Apply</button>
+            
             </div>
             <div class="col-sm-4">
             </div>
             <div class="col-sm-3">
-                <div class="input-group">
-                    <input type="text" class="input-sm form-control" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-sm btn-default" type="button">Go!</button>
-                    </span>
-                </div>
+                <form action="" >
+               
+                    <div class="input-group">
+                        <input type="text" class="input-sm form-control" name="tukhoa" placeholder="Tìm kiếm">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit" ><i class="fas fa-search"></i></button>
+                        </span>
+                    </div>
+                    </form>
             </div>
         </div>
         <div class="table-responsive">
@@ -43,6 +43,7 @@
                         <th>Mô tả</th>
                         <th>Màu sắc</th>
                         <th>Đơn giá</th>
+                        <th>Số lượng</th>
                         <th>Hình ảnh</th>
                         <th>Nhà cung cấp</th>
                         <th style="width:30px;"></th>
@@ -57,6 +58,7 @@
                             <td><span class="text-ellipsis">{{ $item->Mota }}</span></td>
                             <td>{{ $item->Mau_sac }}</td>
                             <td>{{ $item->Don_gia }}</td>
+                            <td>{{ $item->So_luong }}</td>
                             <td><img src="public/uploads/sanpham/{{ $item->Hinh }}" height="100" width="100"></td>
                             <td>{{ $item->Ten_ncc }}</td>
                             <td>
@@ -68,8 +70,10 @@
                             </td>
                         </tr>
                     @endforeach
+                  
                 </tbody>
             </table>
+          <div> {{ $lietkesanpham->appends(REQUEST()->all())->links() }}</div>
         </div>
     </div>
 @endsection

@@ -8,7 +8,7 @@
     <div class="panel-body">
         <div class="position-center">
             @foreach($suataikhoan as $key=>$edit) 
-            <form role="form" action="{{ URL::to('/sua-taikhoan/'.$edit->Ma_tk) }}" method="post">
+            <form role="form" action="{{ URL::to('/sua-taikhoan/'.$edit->id) }}" method="post">
                 @csrf
                 
             <div class="form-group">
@@ -24,7 +24,7 @@
                 <input name="quyen"  class="form-control" id="exampleInputEmail1" value="{{ $edit->Quyen}}">
             </div>
         
-            <button type="themncc" class="btn btn-info">Cap nhan nha cung cap</button>
+            <button type="themncc" class="btn btn-info">Cập nhật tài khoản</button>
         </form>
         @endforeach
         </div>

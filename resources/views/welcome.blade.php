@@ -21,6 +21,7 @@
   <!-- main css -->
   <link rel="stylesheet" href="{{asset('public/frontend/css/style.css')}}" />
   <link rel="stylesheet" href="{{asset('public/frontend/css/responsive.css')}}" />
+
 </head>
 
 <body>
@@ -49,18 +50,18 @@
                         <a class="nav-link" href="{{ URL::to('danhmuc/') }}">Danh mục </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ URL::to('chitiet/') }}">Chi tiết sản phẩm</a>
+                        <a class="nav-link" href="{{ URL::to('/loaisp/' . 2) }}">Cá cảnh</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="checkout.html">Product Checkout</a>
+                        <a class="nav-link" href="{{ URL::to('/loaisp/' . 1) }}">Thức ăn </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="cart.html">Shopping Cart</a>
+                        <a class="nav-link" href="{{ URL::to('/loaisp/' . 3) }}">Dụng cụ </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="{{ URL::to('blog/') }}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                       aria-expanded="false">Bài viết</a>
                       <ul class="dropdown-menu">
                         <li class="nav-item">
@@ -88,18 +89,18 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="{{ URL::to('lienhe/') }}">Contact</a>
                   </li>
                 </ul>
               </div>
 
               <div class="col-lg-5 pr-0">
                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a href="#" class="icons">
                       <i class="ti-search" aria-hidden="true"></i>
                     </a>
-                  </li>
+                  </li> --}}
 
                   <li class="nav-item">
                     <a href="{{ URL::to('/giohang') }}" class="icons">
@@ -110,6 +111,11 @@
                   <li class="nav-item">
                     <a href="{{ URL::to('/admin') }}" class="icons">
                       <i class="ti-user" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ URL::to('/logout') }}" class="icons">
+                      <i class="fa fa-key" aria-hidden="true"></i>
                     </a>
                   </li>
                 </ul>
@@ -123,7 +129,8 @@
   
   </section>
   @yield('content')      
-  @yield('content_s')       
+  @yield('content_s') 
+  @yield('content_ss')        
   <footer class="footer-area section_gap">
     <div class="container">
       <div class="row">
@@ -167,10 +174,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </div>
   </footer>
   <!--================ End footer Area  =================-->
+{{-- <script>
+  function addTo(event){
+    event.preventDefault();
+    let urlCart=$(this).data('url');
+    $.ajax({
+      type:'GET',
+      url: urlCart,
+      dataType:'json',
+      success: function(data){
 
+      },
+
+    })
+
+  }
+  </script> --}}
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+	{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/esm/popper.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
   <script src="{{asset('public/frontend/js/jquery-3.2.1.min.js')}}"></script>
   <script src="{{asset('public/frontend/js/popper.js')}}"></script>
   <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
