@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controllername;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\danhmucsanpham;
 use App\Http\Controllers\khachhang;
 use App\Http\Controllers\sanpham;
@@ -64,7 +65,11 @@ Route::get('/xoasanpham/{id_ma_sp}', [sanpham::class, 'xoasanpham']);
 Route::get('/chitiet/{id_ma_sp}', [sanpham::class, 'chitietsanpham']);
 // Route::get('/chitiet/{id_ma_sp}', [sanpham::class, 'binhluan']);
 //cart
-Route::post('/save-cart', [giohang::class, 'giohang']);
+Route::post('/save-cart', [CartController::class, 'index']);
+Route::get('/giohang', [CartController::class, 'show']);
+Route::get('/xoa/{id_sp}', [CartController::class, 'delete']);
+Route::post('/capnhatgiohang', [CartController::class, 'update']);
+Route::post('/thanhtoan', [CartController::class, 'thanhtoan']);
 //danh muc home
 Route::get('/loaisp/{id_ma_loai_sp}', [Controllername::class, 'loaisp']);
 Route::get('/danhmuc', [Controllername::class, 'danhmuc']);
@@ -73,7 +78,7 @@ Route::get('/lienhe', [Controllername::class, 'lienhe']);
 // Route::get('/chitiet', [Controllername::class, 'chitiet']);
 Route::get('/', [Controllername::class, 'index']);
 Route::get('/danh-muc/{id_ma_loai_sp}', [danhmucsanpham::class, 'hienthi']);
-Route::get('/giohang', [sanpham::class, 'giohang']);
+// Route::get('/giohasng', [sanpham::class, 'giohang']);
 // route ::get(uri:'products/add-to/{id}', action: 'giohang@themgiohang')->name(name:'themgiohang');
 Route::get('/blog', [Controllername::class, 'blog']);
 Route::get('/blog1', [Controllername::class, 'blog1']);

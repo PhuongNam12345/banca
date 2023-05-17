@@ -19,7 +19,7 @@
                 <textarea style="resize: none" class="form-control" rows="5" name="mota"  ></textarea>
             </div>
                   
-            <button type="themdanhmuc" class="btn btn-info">Xác nhận</button>
+            <button name="themdanhmuc" class="btn btn-info">Xác nhận</button>
         </form>
         </div>
 

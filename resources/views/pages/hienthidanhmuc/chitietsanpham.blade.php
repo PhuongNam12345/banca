@@ -50,10 +50,10 @@
                                 @csrf
                             <div class="product_count">
                                 <label for="qty">Quantity:</label>
-                                <input type="number" name="qty" id="sst" maxlength="12" value="1"
+                                <input type="number" name="soluong" id="sst" maxlength="12"  id="sst"  value="1"
                                     title="Quantity:" class="input-text qty" />
-                                    <input type="hidden" name="qty_hidden" value="{{ $item->id_sp }}" id="sst" maxlength="12" value="1"
-                                    title="Quantity:" class="input-text qty" />
+                                    <input type="hidden" name="sp_id" value="{{ $item->id_sp }}"
+                                 class="input-text qty" />
                                 <button
                                     onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
                                     class="increase items-count" type="button">

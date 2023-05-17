@@ -11,10 +11,10 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active h-50">
-                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/cabanner.jpg')}}" alt="First slide">
+                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/aa1.jpg')}}" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/aa1.jpg')}}" alt="Second slide">
+                <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/cabanner.jpg')}}" alt="Second slide">
               </div>
               <div class="carousel-item">   
                 <img class="d-block w-100 " src="{{asset('public/frontend/img/banner/aa2..jpg')}}" alt="Third slide">
@@ -65,7 +65,7 @@
                                                     <i class="ti-heart"></i>
                                                 </a>
 
-                                                <a href="#" data-url="{{ Route('themgiohang',['id'=>$sp->id_sp]) }}" class="icons">
+                                                <a href="#" data-url="" class="icons">
                                                     <i class="ti-shopping-cart"></i>
                                                 </a>
                                             </div>

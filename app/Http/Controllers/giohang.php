@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\Http\Controllers;
 
@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class giohang extends Controller
 {
-    //
+
     public function themgiohang($id){
    
         $sanpham=  DB::table('sanpham')->where('id_sp', $id);
@@ -31,9 +31,11 @@ class giohang extends Controller
     $id_hiden=$request->qty_hidden;
     $qy=$request->qty;
     $data= DB::table('sanpham') ->where('id_sp','=',$id_hiden)->get();
-       
-        return view('pages.giohang');
+    echo '<pre>';
+
+    print_r($data);
 
 
-}
-}
+
+}}
+ -->

@@ -111,25 +111,25 @@ class sanpham extends Controller
         $this->Authlogin();     
         return view('pages.giohang');
     }
-    public function themgiohang($id){
+    // public function themgiohang($id){
    
-          $sanpham=  DB::table('sanpham')->where('id_sp', $id);
-          $sanpham= array();
-          $cart=session()->get(key:'cart');
-          if(isset($cart[$id])){
-            $cart[$id]['So_luong']=$cart[$id]['So_luong']+1;
-          }else{
-            $cart[$id]=[
-                'ten'=> $sanpham['Ten_sp'],
-                'gia'=> $sanpham['Don_gia'],
-                'So'=>1
-            ];
-           }
-           session()->put('cart',$cart);
-           echo "<pre>";
-        print_r(session()->get(key:'cart'));
+    //       $sanpham=  DB::table('sanpham')->where('id_sp', $id);
+    //       $sanpham= array();
+    //       $cart=session()->get(key:'cart');
+    //       if(isset($cart[$id])){
+    //         $cart[$id]['So_luong']=$cart[$id]['So_luong']+1;
+    //       }else{
+    //         $cart[$id]=[
+    //             'ten'=> $sanpham['Ten_sp'],
+    //             'gia'=> $sanpham['Don_gia'],
+    //             'So'=>1
+    //         ];
+    //        }
+    //        session()->put('cart',$cart);
+    //        echo "<pre>";
+    //     print_r(session()->get(key:'cart'));
    
-    }
+    // }
     // public function binhluan($id_ma_sp){
     //     $cmt = DB::table('binh_luan')->join('sanpham',"sanpham.id_sp",'=','binh_luan.sanpham_id')->where('sanpham_id', $id_ma_sp)->get();
     //     return view('pages.hienthidanhmuc.chitietsanpham')

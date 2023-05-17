@@ -103,11 +103,14 @@
                   </li> --}}
 
                   <li class="nav-item">
-                    <a href="{{ URL::to('/giohang') }}" class="icons">
-                      <i class="ti-shopping-cart"></i>
+                    <a href="{{ URL::to('/giohang') }}" class="icons" >
+                      <i class="ti-shopping-cart" data-notify=2></i>
                     </a>
                   </li>
-
+                  {{-- <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                         data-notify="{{ !is_null(\Session::get('carts')) ? count(\Session::get('carts')) : 0 }}">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div> --}}
                   <li class="nav-item">
                     <a href="{{ URL::to('/admin') }}" class="icons">
                       <i class="ti-user" aria-hidden="true"></i>
