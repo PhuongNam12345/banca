@@ -40,7 +40,7 @@
                 <div class="input-group">
                     <input type="text" class="input-sm form-control" name="tukhoa" placeholder="Tìm kiếm">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit" ><i class="fas fa-search"></i></button>
+                        <button class="btn btn-default" type="submit" >Tìm kiếm</button>
                     </span>
                 </div>
                 </form>
@@ -57,17 +57,17 @@
                                         <div class="product-img">
                                             <img class="img-fluid w-75"
                                                 src="{{ URL::to('public/uploads/sanpham/' . $sp->Hinh) }}">
-                                            <div class="p_icon">
+                                            <div class="p_icon w-75">
                                                 <a href="{{ URL::to('chitiet/' . $sp->id_sp) }}">
                                                     <i class="ti-eye"></i>
                                                 </a>
-                                                <a href="#">
+                                                {{-- <a href="#">
                                                     <i class="ti-heart"></i>
                                                 </a>
 
                                                 <a href="#" data-url="" class="icons">
                                                     <i class="ti-shopping-cart"></i>
-                                                </a>
+                                                </a> --}}
                                             </div>
                                         </div>
                                         <div class="product-btm">

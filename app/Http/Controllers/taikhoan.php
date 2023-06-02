@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Redirect;
 Session_start();
 
@@ -13,10 +15,10 @@ class taikhoan extends Controller
     public function Authlogin()
     {
         $id = session::get('id');
-        if ($id) {
+        if ($id==1) {
             return Redirect::to('/dashboard');
         } else {
-            Session::put('message', 'Vui lòng đăng nhập');
+            Session::put('message', 'Vui lòng đăng nhập tài khoản Admin');
             return Redirect::to('/admin')->send();
         }
     }
@@ -25,7 +27,7 @@ class taikhoan extends Controller
         $this->Authlogin();
         $lietke = DB::table('taikhoan')->paginate(4);
         if($key=request()->tukhoa){
-            $lietke = DB::table('taikhoan')->where('Ten_tk','like','%'.$key.'%')->paginate(4);
+            $lietke = DB::table('taikhoan')->where('Tentaikhoan','like','%'.$key.'%')->paginate(4);
         }
         $manager = view('admin.lietketaikhoan')->with('lietketaikhoan', $lietke);
         return view('admin_layout')->with('admin.lietketaikhoan', $manager);
@@ -72,10 +74,13 @@ class taikhoan extends Controller
     public function xoataikhoan($id_ma_tk)
     {
         $this->Authlogin();
+       
         DB::table('taikhoan')
             ->where('id', $id_ma_tk)
             ->delete();
         Session::put('message', 'Xóa thành công!');
         return Redirect::to('/lietketaikhoan');
+
     }
+  
 }

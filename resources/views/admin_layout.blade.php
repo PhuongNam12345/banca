@@ -25,6 +25,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{ asset('public/backend/css/font-awesome.css') }}" rel="stylesheet"> 
 <link rel="stylesheet" href="{{ asset('public/backend/css/morris.css') }}" type="text/css"/>
 <!-- calendar -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link rel="stylesheet" href="{{ asset('public/backend/css/monthly.css') }}">
 <!-- //calendar -->
 <!-- //font-awesome icons -->
@@ -33,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{ asset('public/backend/js/morris.js') }}"></script>
 </head>
 <body>
+   
 <section id="container">
 <!--header start-->
 <header class="header fixed-top clearfix">
@@ -53,9 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li>
-            <input type="text" class="form-control search" placeholder=" Search">
-        </li>
+     
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle"href=""> 
@@ -83,14 +84,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
                     <a class="active" href="{{URL::to('/dashboard')}}">
-                        <i class="fa fa-dashboard"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 
                 <li class="sub-menu">
                     <a href="{{URL::to('/lietkedanhmuc')}}">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-tasks"></i>
                         <span>Loại Sản Phẩm</span>
                     </a>
                     <ul class="sub">
@@ -123,7 +124,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 				<li class="sub-menu">
                     <a href="{{URL::to('/lietkekhachhang')}}">
-                        <i class="fa fa-book"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                          </svg>
                         <span>Khách hàng</span>
                     </a>
                     <ul class="sub">
@@ -149,10 +152,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Giò hàng</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/themtaikhoan')}}"></a></li>
-						<li><a href="{{URL::to('/lietketaikhoan')}}">Danh sách tài khoản</a></li>
+						{{-- <li><a href="{{URL::to('/themtaikhoan')}}"></a></li> --}}
+						<li><a href="{{URL::to('/donhang')}}">Danh sách đơn hàng</a></li>
                         
                     </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="{{URL::to('/tinnhan')}}">
+                        <i class="  fa fa-envelope"></i>
+                       
+                        <span>Tin nhắn</span>
+                    </a>
+                  
+                </li>
+                <li class="sub-menu">
+                    <a href="{{URL::to('/binhluan')}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                          </svg>
+                        <span>Bình Luận</span>
+                    </a>
+                  
                 </li>
                
             </ul>            </div>

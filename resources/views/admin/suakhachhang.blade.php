@@ -2,7 +2,7 @@
 @section('admin_content')
 <section class="panel">
     <header class="panel-heading">
-        Thêm nhà cung cấp
+        Cập nhật thông tin khách hàng
     </header>
   
     <div class="panel-body">
@@ -16,8 +16,11 @@
                 <input name="tenkh" class="form-control" id="exampleInputEmail1" value="{{ $edit->Ten_kh}}">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Giới tính</label>
-                <input name="gioitinh" class="form-control" id="exampleInputEmail1"value="{{ $edit->Gioitinh}}">
+                <label for="exampleInputEmail1">Giới tính </label>
+                <div class="gioitinh" style="color: rgb(111 104 104);" >
+                    Nam <input type="radio"  name="gioitinh" value="1"  {{ ( $edit->Gioitinh== 1) ? 'checked' : '' }}> &emsp;	
+                    Nữ <input type="radio" name="gioitinh" value="2" {{ ( $edit->Gioitinh == 2) ? 'checked' : '' }}>
+                    </div> 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
@@ -33,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Tài khoản</label>
-                <input name="taikhoan" class="form-control" id="exampleInputEmail1"value="{{ $edit->taikhoan_id}}">
+                <input name="taikhoan" class="form-control" id="exampleInputEmail1"value="{{ $edit->Tentaikhoan}}" disabled>
             </div>
             <button type="themncc" class="btn btn-info">Cập nhật</button>
         </form>

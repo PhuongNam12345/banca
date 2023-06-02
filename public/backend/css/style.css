@@ -989,7 +989,7 @@ div#graph1,div#graph4,div#graph5,div#graph6,div#graph7,div#graph8,div#graph9 {
 }
 .stats-table td {
     font-size: 0.9em;
-    color: #555;
+    color: #080808;
     padding: 11px !important;
 }
 /*--//statistics--*/
@@ -1431,8 +1431,8 @@ li.list-group-item1 {
 }
 .grid_3 p{
 	line-height: 2em;
-	color: #888;
-	font-size: 0.9em;
+	color: #000000;
+	font-size:1em;
 	margin-bottom: 1em;
 	font-weight: 300;
 }
@@ -1452,8 +1452,8 @@ section#tables  p {
 	padding: 15px!important;
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-	font-size: 0.9em;
-	color: #999;
+	font-size: 1em;
+	color: #0941c6;
 	border-top: none !important;
 }
 .tab-content > .active {
@@ -1645,10 +1645,10 @@ ul.bs-glyphicons-list {
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .panel-default>.panel-heading {
-    color: #000000 ! important;
+    color: #f00707 ! important;
     background-color: #ddede0 ! important;
     border-color: #ddede0 ! important;
-    font-size: 20px;
+    font-size: 25px;
 }
 p.hd-title {
     color: #b64d99;
@@ -1704,6 +1704,9 @@ select.input-sm {
 }
 .m-b-xs {
     margin-bottom: 5px;
+}
+.m-b-30 {
+    margin-bottom: 30px;
 }
 #upload{
     font-family:'PT Sans Narrow', sans-serif;
@@ -2589,10 +2592,10 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 .market-update-gd {
     float: left;
     width: 50%;
-    margin: 1em 0;
+    margin-bottom: 5em 0;
 }
 .market-updates {
-    margin: 0em 0;
+    margin: 1.5em 0;
 }
 .agile-calendar {
     width: 100%;
@@ -3100,7 +3103,7 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     margin: 1em 0;
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-    font-size: 0.75em;
+    font-size: 1em;
 }
 #drop {
     padding: 50px 16px;

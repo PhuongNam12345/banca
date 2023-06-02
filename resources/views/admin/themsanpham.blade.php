@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Hình ảnh</label>
                         <input name="hinhanh" class="form-control" type="file" id="exampleInputEmail1"
-                            placeholder="Ten danh muc">
+                            placeholder="Hinh anh">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nhà cung cấp</label>

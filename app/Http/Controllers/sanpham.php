@@ -12,10 +12,10 @@ class sanpham extends Controller
     public function Authlogin()
     {
         $id= session::get('id');
-        if($id){
+        if($id==1){
             return Redirect::to('/dashboard');
         }else{
-            Session::put('message', 'Vui lòng đăng nhập');
+            Session::put('message', 'Vui lòng đăng nhập tài khoản Admin');
             return Redirect::to('/admin')->send();
         }
     }
@@ -87,18 +87,34 @@ class sanpham extends Controller
             ->with('loai', $loai)
             ->with('ncc', $ncc);
     }
-    public function sua_danhmuc(Request $request, $id_ma_sp)
-    {
+    public function sua_sanpham(Request $request,$id_ma_sp){
+        $this->AuthLogin();
         $data = [];
-        $data['id_sp'] = $request->madanhmuc;
-        $data['Ten_loai_sp'] = $request->tendanhmuc;
-        $data['Mo_ta'] = $request->mota;
-        DB::table('loaisp')
-            ->where('id_sp', $id_ma_sp)
-            ->update($data);
-        Session::put('message', 'Cập nhật thành công!');
-        return Redirect::to('/lietkedanhmuc');
-    }
+        $data['Ten_sp'] = $request->tensanpham;
+        $data['loaisp_id'] = $request->loaisp;
+        $data['Mota'] = $request->mota;
+        $data['Mau_sac'] = $request->mausac;
+        $data['Don_gia'] = $request->dongia;
+        $data['So_luong'] = $request->soluong;
+        $data['nhacungcap_id'] = $request->ncc;
+        $get_hinh = $request->file('hinhanh');
+       
+       if($get_hinh){
+                   $get_ten = $get_hinh->getClientOriginalName();
+                   $name_image = current(explode('.',$get_ten));
+                   $new_image =  $name_image.rand(0,99).'.'.$get_hinh->getClientOriginalExtension();
+                   $get_hinh->move('public/uploads/sanpham',$new_image);
+                   $data['hinhanh'] = $new_image;
+                   DB::table('sanpham')->where('id_sp',$id_ma_sp)->update($data);
+                   Session::put('message','Cập nhật sản phẩm thành công');
+                   return Redirect::to('all-product');
+           
+       }
+           
+       DB::table('sanpham')->where('id_sp',$id_ma_sp)->update($data);
+       Session::put('message','Cập nhật sản phẩm thành công');
+       return Redirect::to('/lietkesanpham');
+   }
     public function xoasanpham($id_ma_sp)   
     {$this->Authlogin();
         DB::table('sanpham')
@@ -151,20 +167,72 @@ class sanpham extends Controller
         ->with('ncc', $ncc)
         ->with('cmt', $cmt);   
      }
-     public function binhluan($id_tk,$id_sp){   
+     public function binh_luan(request $request){   
+       
+        $product_id=$request->product_id;
+        $binhluan=DB::table('binh_luan')->join('taikhoan','taikhoan.id','=','binh_luan.taikhoan_id')
+        ->where('sanpham_id',$product_id)->orderByDesc('binh_luan.id_bl')->get();
+
+        $out='';  
+        foreach($binhluan as $key=>$item){
+            $out.=' 
+            <div class="review_list">                           
+            <div class="review_item mt-10">
+                <div class="media">
+                    <div class="d-flex">
+                        <img class="w-15" src="'.url('/public/frontend/img/product/single-product/review-2.png').'" alt="" />
+                    </div>
+                    <div class="media-body">
+                        <h4>'.$item->Tentaikhoan.'</h4>
+                        <p>
+                        '.$item->ngay_binh_luan.'
+                     </p>
+                   
+                       '.$item->Danh_gia.'
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <p>
+                   '.$item->Binh_luan.'
+                </p>
+            </div>
+
+        </div>';
+        }
         
-        $loai = DB::table('loaisp')
-            ->get();
-        $ncc = DB::table('nhacungcap')
-            ->get();
-        $cmt = DB::table('binh_luan')->where('sanpham_id', $id_ma_sp)->get();
+        echo $out;
+    }
+    public function gui_binh_luan(request $request){
+        $id_taikhoan=session::get('id');
+        $product_id=$request->product_id;
+        $danhgia=$request->danhgia;
+        $binhluan=$request->binh_luan;
+        
+        $data=[];
+        $data['taikhoan_id']=$id_taikhoan;
+        $data['Binh_luan']= $binhluan;
+        $data['Danh_gia']= $danhgia;
+        $data['sanpham_id']=$product_id;
+        
+        DB::table('binh_luan')        
+            ->insert($data);
+       
+
+  
+}}
+        
+    //     $loai = DB::table('loaisp')
+    //         ->get();
+    //     $ncc = DB::table('nhacungcap')
+    //         ->get();
+    //     $cmt = DB::table('binh_luan')->where('sanpham_id', $id_ma_sp)->get();
            
-        $chitiet = DB::table('sanpham')->join('loaisp',"sanpham.loaisp_id",'=','loaisp.id')
-       ->where('id_sp', $id_ma_sp)->get();
-        return view('pages.hienthidanhmuc.chitietsanpham') 
-        ->with('loai', $loai)
-        ->with('chitiet', $chitiet)
-        ->with('ncc', $ncc)
-        ->with('cmt', $cmt);   
-     }
-}
+    //     $chitiet = DB::table('sanpham')->join('loaisp',"sanpham.loaisp_id",'=','loaisp.id')
+    //    ->where('id_sp', $id_ma_sp)->get();
+    //     return view('pages.hienthidanhmuc.chitietsanpham') 
+    //     ->with('loai', $loai)
+    //     ->with('chitiet', $chitiet)
+    //     ->with('ncc', $ncc)
+    //     ->with('cmt', $cmt);   
+     
+

@@ -2,12 +2,12 @@
 @section('admin_content')
 <section class="panel">
     <header class="panel-heading">
-        Thêm nhà cung cấp
+        Cập nhật nhà cung cấp
     </header>
   
     <div class="panel-body">
         <div class="position-center">
-            @foreach($suancc as $key=>$edit) 
+            @foreach($suancc as $key=>$edit)    
             <form role="form" action="{{ URL::to('/sua-ncc/'.$edit->id) }}" method="post">
                 @csrf
                 

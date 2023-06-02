@@ -27,12 +27,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<form action="{{ URL::to('dang-ki') }}" method="post">
             @csrf
             <input type="text" class="ggg" name="tenkh" placeholder="Họ Tên" required="">
-			<select name="gioitinh" class="form-control" class="ggg" >
+			{{-- <select name="gioitinh" class="form-control" class="ggg" >
 				
 					<option value="2">Nữ</option>
 					<option value="1">Nam</option>
 				
-			</select>
+			</select> --}}
+			<div class="gioitinh" style="color: aliceblue;" required="">Giới Tính: &emsp;
+			Nam <input type="radio" name="gioitinh" value="1"> &emsp;	
+			Nữ <input type="radio" name="gioitinh" value="2">
+			</div>
 			<input type="email" class="ggg" name="email" placeholder="Điền email" required="">
 			<input type="text" class="ggg" name="sdt" placeholder="Điền SDT" required="">
 			<input type="text" class="ggg" name="diachi" placeholder="Điền Địa Chỉ" required="">
@@ -41,9 +45,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{{-- <h4><input type="checkbox" />I agree to the Terms of Service and Privacy Policy</h4> --}}
 			
 				<div class="clearfix"></div>
-				<input type="submit" value="submit" name="register">
+				<input type="submit" value="Đăng Kí" name="register">
 		</form>
-		<p>Already Registered.<a href="login.html">Login</a></p>
+		<p><a href="{{ URL::to('admin') }}">Đăng Nhập</a></p>
 </div>
 </div>
 <script src="{{ asset('public/backend/js/bootstrap.js') }}"></script>

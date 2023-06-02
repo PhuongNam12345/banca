@@ -14,10 +14,10 @@ class nhacungcap extends Controller
     public function Authlogin()
     {
         $id= session::get('id');
-        if($id){
+        if($id==1){
             return Redirect::to('/dashboard');
         }else{
-            Session::put('message', 'Vui lòng đăng nhập');
+            Session::put('message', 'Vui lòng đăng nhập tài khoản Admin');
             return Redirect::to('/admin')->send();
         }
     }

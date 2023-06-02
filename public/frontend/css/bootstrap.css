@@ -7661,6 +7661,9 @@ button.bg-dark:hover {
 .w-25 {
     width: 25% !important
 }
+.w-40 {
+    width: 40% !important
+}
 
 .w-50 {
     width: 50% !important
@@ -7688,6 +7691,10 @@ button.bg-dark:hover {
 
 .h-75 {
     height: 75% !important
+}
+.m-w-25 {
+    width: 25% !important;
+    height: 25% !important;
 }
 
 .h-100 {
@@ -7834,7 +7841,10 @@ button.bg-dark:hover {
 .my-5 {
     margin-top: 3rem !important
 }
-
+.mt-5,
+.my-15 {
+    margin-top: 15rem !important
+}
 .mr-5,
 .mx-5 {
     margin-right: 3rem !important
@@ -7843,6 +7853,10 @@ button.bg-dark:hover {
 .mb-5,
 .my-5 {
     margin-bottom: 3rem !important
+}
+.mb-20,
+.my-20{
+    margin-bottom: 15rem !important
 }
 
 .ml-5,

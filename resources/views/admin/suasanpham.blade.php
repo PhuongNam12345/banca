@@ -16,7 +16,7 @@
                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Loại sản phẩm</label>
-                    <select name="tendanhmuc" class="form-control" id="exampleInputEmail1" value="{{ $edit->loaisp_id}}">
+                    <select name="loaisp" class="form-control" id="exampleInputEmail1" value="{{ $edit->loaisp_id}}">
                         @foreach($loai as $key=>$editloai)
                         @if($editloai->id==$edit->loaisp_id)
                         <option selected value="{{ $editloai->id }}" >{{ $editloai->Ten_loai_sp }}</option>
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Màu sắc</label>
-                <input name="tendanhmuc" class="form-control" id="exampleInputEmail1" value="{{ $edit->Mau_sac}}">
+                <input name="mausac" class="form-control" id="exampleInputEmail1" value="{{ $edit->Mau_sac}}">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Đơn giá</label>
@@ -47,12 +47,13 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Hình ảnh</label>
-                <input name="hinhanh" class="form-control"  type="file" id="exampleInputEmail1" value="{{ $edit->Hinh}}">
+                <input name="hinhanh" class="form-control"  type="file" id="exampleInputEmail1" >
                 <img src="{{ url::to("public/uploads/sanpham/".$edit->Hinh) }}"  height="100" width="100">
             </div>
+            
             <div class="form-group">
                 <label for="exampleInputEmail1">Nhà cung cấp</label>
-                <select name="tendanhmuc" class="form-control" id="exampleInputEmail1" value="{{ $edit->nhacungcap_id}}">
+                <select name="ncc" class="form-control" id="exampleInputEmail1" value="{{ $edit->nhacungcap_id}}">
                     @foreach($ncc as $key=>$editncc)
                     @if($editncc->id==$edit->nhacungcap_id)
                     <option selected value="{{ $editncc->id }}" >{{ $editncc->Ten_ncc }}</option>

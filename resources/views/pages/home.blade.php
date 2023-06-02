@@ -86,12 +86,12 @@
               <a href="{{ URL::to('chitiet/'.$sp->id_sp) }}">
                 <i class="ti-eye"></i>
               </a>
-              <a href="#">
+              {{-- <a href="#">
                 <i class="ti-heart"></i>
               </a>
               <a href="{{ URL::to('/giohang') }}" class="icons">
                 <i class="ti-shopping-cart"></i>
-              </a>
+              </a> --}}
             </div>
           </div>
           <div class="product-btm">
@@ -129,15 +129,19 @@
             <img class="img-fluid w-75" src="{{ URL::to('public/uploads/sanpham/' . $sp->Hinh) }}" alt="" />
             <div class="p_icon w-75">
               <a href="{{ URL::to('chitiet/'.$sp->id_sp) }}">
-                <i class="ti-eye"></i>
+                <i class="ti-eye w-75"></i>
               </a>
-              <a href="#">
+              {{-- <a href="#">
                 <i class="ti-heart"></i>
               </a>
-             
-                <a href="{{ URL::to('/giohang') }}" class="icons">
-                <i class="ti-shopping-cart"></i>
-              </a>
+              <form action="{{ URL::to('/save-cart') }}" method="post" class="icons">
+                @csrf
+               
+                    <input type="hidden" name="sp_id" value="{{ $sp->id_sp }}"
+                 class="input-text qty" />
+                 <button class="ti-shopping-cart"></>
+            </form> --}}
+                
             </div>
           </div>
           <div class="product-btm">
@@ -176,13 +180,13 @@
               <a href="{{ URL::to('chitiet/'.$sp->id_sp) }}">
                 <i class="ti-eye"></i>
               </a>
-              <a href="#">
+              {{-- <a href="#">
                 <i class="ti-heart"></i>
               </a>
              
                 <a href="{{ URL::to('/giohang') }}" class="icons">
                 <i class="ti-shopping-cart"></i>
-              </a>
+              </a> --}}
             </div>
           </div>
           <div class="product-btm">
