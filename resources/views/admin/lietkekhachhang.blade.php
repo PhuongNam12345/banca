@@ -34,7 +34,7 @@
             <table class="table table-striped b-t b-light">
                 <thead>
                     <tr>
-                      
+                        <th>STT</th>
                         <th>Tên khách hàng</th>
                         <th>Giới tính</th>
                         <th>Email</th>
@@ -44,9 +44,9 @@
                         <th style="width:30px;"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> @php $i = 1 @endphp
                     @foreach($lietkekhachhang as $key => $item)                                   
-                        <tr>
+                        <tr>       <td>{{ $i }}</td>
                             {{-- <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> --}}
                             <td>{{ $item->Ten_kh }}</td>
                             <td> @php
@@ -67,7 +67,7 @@
                                 <a href="{{ URL::to('/xoakhachhang/'.$item->id) }}" onclick="return confirm('bạn chắc chắn xóa?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
-                        </tr>
+                        </tr> @php $i++ @endphp 
                     @endforeach
                 </tbody>
             </table>

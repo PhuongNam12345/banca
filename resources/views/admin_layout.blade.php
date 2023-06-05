@@ -33,6 +33,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{ asset('public/backend/js/jquery2.0.3.min.js') }}"></script>
 <script src="{{ asset('public/backend/js/raphael-min.js') }}"></script>
 <script src="{{ asset('public/backend/js/morris.js') }}"></script>
+<link href="{{ asset('public/frontend/vendors/bootstrap-datepicker/daterangepicker.css') }}" type="text/css" rel="stylesheet" />
+<style>
+    .notice {
+        font-style: italic;
+        font-size: 0.8em;
+    }
+</style>
 </head>
 <body>
    

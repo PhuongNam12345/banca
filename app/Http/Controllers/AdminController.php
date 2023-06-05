@@ -76,7 +76,31 @@ class AdminController extends Controller
             ->with('duyet',$duyet)
             ->with('donhang',$donhang)
             ->with('donhuy',$donhuy);
-    
+        
+    }
+    public function donhangData(Request $request)
+    {
+        
+        $parameter = [
+            'tuNgay' => $request->tuNgay,
+            'denNgay' => $request->denNgay
+        ];
+       
+        // dd($parameter);
+        $data = DB::select('
+            SELECT dh.Ngay_hd as thoiGian
+                , SUM(dh.Tri_gia) as tongThanhTien
+            FROM hoa_don dh
+            WHERE dh.Ngay_hd BETWEEN :tuNgay AND :denNgay
+            GROUP BY dh.Ngay_hd
+        ', $parameter);
+
+        return response()->json(array(
+            'code'  => 200,
+            'data' => $data,  
+         
+        
+        ));
         
     }
     public function tinnhan()

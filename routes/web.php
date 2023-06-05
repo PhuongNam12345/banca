@@ -29,6 +29,7 @@ Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::get('/logout', [AdminController::class, 'logout']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
+Route::get('/bieudo', [AdminController::class, 'donhangData']);
 Route::get('/tinnhan', [AdminController::class, 'tinnhan']);
 Route::get('/xoatinnhan/{id_tn}', [AdminController::class, 'xoatinnhan']);
 Route::get('/binhluan', [AdminController::class, 'binhluan']);

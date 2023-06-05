@@ -35,7 +35,7 @@
             <table class="table table-striped b-t b-light">
                 <thead>
                     <tr>
-                    
+                        <th>STT</th>
                         <th>Tên sản phẩm</th>
                         <th>Loại sản phẩm</th>
                         <th>Mô tả</th>
@@ -47,9 +47,9 @@
                         <th style="width:30px;"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> @php $i = 1 @endphp
                     @foreach($lietkesanpham as $key => $item)                                   
-                        <tr>
+                        <tr>       <td>{{ $i }}</td>
                             {{-- <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td> --}}
                             <td>{{ $item->Ten_sp }}</td>
                             <td>{{ $item->Ten_loai_sp }}</td>
@@ -66,7 +66,7 @@
                                 <a href="{{ URL::to('/xoasanpham/'.$item->id_sp) }}" onclick="return confirm('bạn chắc chắn xóa?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
-                        </tr>
+                        </tr> @php $i++ @endphp 
                     @endforeach
                   
                 </tbody>

@@ -78,7 +78,7 @@
         <div class="table-responsive">
             <table class="table table-striped b-t b-light">
                 <thead>
-                    <tr>       
+                    <tr>       <th>STT</th>   
                         <th >Tên khách hàng</th>
                         <th >Tên tài khoản</th>
                         <th >Tên sản phẩm</th>
@@ -87,10 +87,10 @@
                         <th style="width:50px;"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> @php $i = 1 @endphp
                     @foreach($lietke as $key => $item)                                   
                         <tr>
-                           
+                          <td>{{ $i }}</td>
                             <td>{{ $item->Ten_kh }}</td>
                         
                             <td><span class="text-ellipsis">{{ $item->Tentaikhoan }}</span></td>
@@ -101,7 +101,7 @@
                                 <a href="{{ URL::to('/xoabinhluan/'.$item->id_bl) }}" onclick="return confirm('bạn chắc chắn xóa?');"  class="active" ui-toggle-class=""><i
                                         class="fa fa-times text-danger text"></i></a>
                             </td>
-                        </tr>
+                        </tr> @php $i++ @endphp 
                     @endforeach
                 </tbody>
             </table>
