@@ -21,7 +21,7 @@
                                 Bởi chúng có tác động trực tiếp tới tâm lý, huyết áp và nhịp tim của mọi người.
 
                                </span>
-                               <img class="img-fluid w-75" src="{{('public/frontend/img/banner/ca1.jpg')}}" alt="" />
+                               <img class="img-fluid w-100" src="{{('public/frontend/img/banner/ca1.jpg')}}" alt="" />
                              
                                <div class="quote-wrapper">
                                    <div class="quotes">

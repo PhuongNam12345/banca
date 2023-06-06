@@ -43,12 +43,14 @@ class Controllername extends Controller
         return view('pages.hienthidanhmuc.loaisanpham')   
             ->with('loaisp', $loaisp)->with('name',$name) ;
     }
-    public function danhmuc(){   
+    public function danhmuc(Request $request){   
+        $search = $request->get('search');
         $sanpham = DB::table('sanpham')->get();
         $loaisp = DB::table('loaisp')->get();
         if($key=request()->tukhoa){
             $sanpham = DB::table('sanpham')->where('Ten_sp','like','%'.$key.'%')->get(); 
         }
+        $sanpham = DB::table('sanpham')->where('sanpham.loaisp_id', 'like', '%' . $search . '%')->paginate(10);
         return view('pages.danhmuc')->with('loaisp', $loaisp)->with('sp_loai',$sanpham);
         
     }

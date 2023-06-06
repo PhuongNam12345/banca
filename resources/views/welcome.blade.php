@@ -38,17 +38,17 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
                         <div class="row w-100 mr-0">
-                            <div class="col-lg-7 pr-0">
+                            <div class="col-lg-8 pr-0">
                                 <ul class="nav navbar-nav center_nav pull-right">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="{{ URL::to('/') }}">Trang chủ</a>
+                                        <a class="nav-link" style="font-size: 20px" href="{{ URL::to('/') }}">Trang chủ</a>
                                     </li>
                                     <li class="nav-item submenu dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                            role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm</a>
+                                        <a  href="{{ URL::to('danhmuc/') }}"class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                            role="button" aria-haspopup="true" style="font-size: 20px"aria-expanded="false">Sản phẩm</a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ URL::to('danhmuc/') }}">Danh mục </a>
+                                                <a class="nav-link" href="{{ URL::to('danhmuc/') }}">Tất cả</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ URL::to('/loaisp/' . 2) }}">Cá cảnh</a>
@@ -64,7 +64,7 @@
                                     <li class="nav-item submenu dropdown">
                                         <a href="{{ URL::to('blog/') }}" class="nav-link dropdown-toggle"
                                             data-toggle="dropdown" role="button" aria-haspopup="true"
-                                            aria-expanded="false">Bài viết</a>
+                                            aria-expanded="false"style="font-size: 20px">Bài viết</a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ URL::to('blog/') }}">Vua cá cảnh </a>
@@ -80,12 +80,12 @@
                                     </li>
                                 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ URL::to('lienhe/') }}">Liên hệ</a>
+                                        <a class="nav-link" style="font-size: 20px" href="{{ URL::to('lienhe/') }}">Liên hệ</a>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="col-lg-5 pr-0">
+                            <div class="col-lg-4 pr-0">
                                 <ul class="nav navbar-nav navbar-right right_nav pull-right">
                                     {{-- <li class="nav-item">
                     <a href="#" class="icons">
@@ -133,14 +133,14 @@
     <footer class="footer-area section_gap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-md-6 single-footer-widget">
+                <div class="col-lg-6 col-md-6 single-footer-widget">
                     <h4>Hỗ trợ khách hàng</h4>
                     <ul>
                         <li><a href="#">Email: namdang@gmail.com</a></li>
                         <li><a href="#">Điện thoại: 0792995628</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 single-footer-widget">
+                <div class="col-lg-6 col-md-6 single-footer-widget">
                     <h4>Về chúng tôi</h4>
                     <ul>
                         <li><a href="{{ URL::to('/') }}">Trang chủ</a></li>

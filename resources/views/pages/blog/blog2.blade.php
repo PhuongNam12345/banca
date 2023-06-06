@@ -10,7 +10,7 @@
                                <img class="img-fluid" src="img/blog/main-blog/m-blog-1.jpg" alt="">
                            </div>
                            <div class="blog_details">
-                               <h2>Cá vàng lớn nhất nước Anh có giá đắt như vàng</h2>
+                               <strong class="text-center" style="color:red;font-size:30px" >Cá vàng lớn nhất nước Anh có giá đắt như vàng</strong>
                                <ul class="blog-info-link mt-3 mb-4">
                                    <li><a href="#"><i class="ti-user"></i> Travel, Lifestyle</a></li>
                                    <li><a href="#"><i class="ti-comments"></i> 0 Comments</a></li>
@@ -18,7 +18,7 @@
                                <span class="excert">
                                 Chú cá vàng màu đỏ cam Rocky dài 15 cm, có bề rộng 10 cm và nặng gần 1,2 kg. Con cá ba năm tuổi vô cùng quý hiếm do kích thước lớn và thuộc giống cá vàng đầu lân, là loài bản xứ ở Nhật Bản và Trung Quốc, với đặc trưng là khối u gồ lên trước trán.
                                </span>
-                               <img class="img-fluid w-75" src="{{('public/frontend/img/banner/ca2.jpg')}}" alt="" />
+                               <img class="img-fluid w-100" src="{{('public/frontend/img/banner/ca2.jpg')}}" alt="" />
                                
                                <div class="quote-wrapper">
                                    <div class="quotes">
