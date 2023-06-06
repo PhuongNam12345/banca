@@ -2,7 +2,7 @@
 @section('admin_content')
     <div class="panel panel-default">
         <div class="panel-heading">
-            Danh sách đơn hàng
+            Chi tiết đơn hàng
         </div>
       
         @php

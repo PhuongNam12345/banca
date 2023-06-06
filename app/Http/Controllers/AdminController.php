@@ -97,8 +97,7 @@ class AdminController extends Controller
 
         return response()->json(array(
             'code'  => 200,
-            'data' => $data,  
-         
+            'data' => $data,    
         
         ));
         

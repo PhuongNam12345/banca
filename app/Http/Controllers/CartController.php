@@ -94,7 +94,7 @@ class CartController extends Controller
         $email->to($mail,$name);
     });
     foreach ($chitiet as $key => $items){
-      $id=$sss->id_sp;
+      $id=$items->id_sp;
      $cc= $sss->So_luong-$items->So_luong;
       DB::table('sanpham')  ->where('id_sp', $id)->update( ['So_luong' => $cc]); 
     }

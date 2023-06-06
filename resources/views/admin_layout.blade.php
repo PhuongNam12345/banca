@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--header start-->
 <header class="header fixed-top clearfix">
 <div class="brand">
-    <a href="index.html" class="logo">
+    <a href="{{URL::to('/dashboard')}}" class="logo">
         ADMIN
     </a>
     <div class="sidebar-toggle-box">
@@ -74,7 +74,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="dropdown-menu extended logout">
                 {{-- <li><a href="#"><i class=" fa fa-suitcase"></i>Ca nhan</a></li> --}}
                 <li><a href="{{ URL::to('/logout') }}"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                <li><a href="{{ URL::to('/') }}"><i class="fa fa-key"></i> Trang chủ</a></li>
             </ul>
+        
         </li>
         <!-- user login dropdown end -->
        
@@ -92,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                     <a class="active" href="{{URL::to('/dashboard')}}">
                         <i class="fas fa-tachometer-alt"></i>
-                        <span>Dashboard</span>
+                        <span>Tổng quan thống kê</span>
                     </a>
                 </li>
                 
@@ -129,6 +131,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="{{URL::to('/donhang')}}">
+                        <i class="  fa fa-shopping-cart"></i>
+                        <span>Giò hàng</span>
+                    </a>
+                    {{-- <ul class="sub">
+					
+						<li><a href="{{URL::to('/donhang')}}">Danh sách đơn hàng</a></li>
+                        
+                    </ul> --}}
+                </li>
 				<li class="sub-menu">
                     <a href="{{URL::to('/lietkekhachhang')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -153,17 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         
                     </ul>
                 </li>
-				<li class="sub-menu">
-                    <a href="{{URL::to('/lietketaikhoan')}}">
-                        <i class="  fa fa-shopping-cart"></i>
-                        <span>Giò hàng</span>
-                    </a>
-                    <ul class="sub">
-						{{-- <li><a href="{{URL::to('/themtaikhoan')}}"></a></li> --}}
-						<li><a href="{{URL::to('/donhang')}}">Danh sách đơn hàng</a></li>
-                        
-                    </ul>
-                </li>
+			
                 <li class="sub-menu">
                     <a href="{{URL::to('/tinnhan')}}">
                         <i class="  fa fa-envelope"></i>

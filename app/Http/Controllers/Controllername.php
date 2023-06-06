@@ -76,6 +76,11 @@ class Controllername extends Controller
         // $manager = view('admin.lietketaikhoan')->with('lietketaikhoan', $lietke);
         // return view('admin_layout')->with('admin.lietketaikhoan', $manager);   
         $id = session::get('id');
+        if($id==1){ Session::put('message','Đây là tài khoản admin');
+            $lietke = DB::table('khachhang')
+            ->join('taikhoan', 'khachhang.taikhoan_id', '=', 'taikhoan.id')->where('khachhang.taikhoan_id',$id)
+            ->get();
+            return view('pages.canhan')->with('lietke', $lietke);}else{
        if($id){ $lietke = DB::table('khachhang')
         ->join('taikhoan', 'khachhang.taikhoan_id', '=', 'taikhoan.id')->where('khachhang.taikhoan_id',$id)
         ->get();
@@ -86,7 +91,7 @@ class Controllername extends Controller
         ->join('taikhoan', 'khachhang.taikhoan_id', '=', 'taikhoan.id')->where('khachhang.taikhoan_id',$id)
         ->get();
         return view('pages.canhan')->with('lietke', $lietke);
-                                  
+    }                           
       
     }
     }
@@ -122,7 +127,7 @@ class Controllername extends Controller
             $data['chu_de']=$request->chude;
            
              DB::table('lienhe')->insert($data);
-             Session::put('message','Gửi thông tin thành công! Cảm ơn bạn đã gửi!');
+             Session::put('message','Gửi tin nhắn thành công! Cảm ơn bạn đã gửi!');
              return Redirect::to('/lienhe');
        
     

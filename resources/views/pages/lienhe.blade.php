@@ -70,7 +70,7 @@ $send = mail($to, $subject, $body, $headers);
       @php
       $message = Session::get('message');
       if ($message) {
-          echo $message;
+        echo '<span class="text text-succes" style="color: red;font-size:30px;text-align:center;">'.$message.'<span>';
           Session::put('message', null);
       }
    
